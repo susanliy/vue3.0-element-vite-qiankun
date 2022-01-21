@@ -1,0 +1,66 @@
+@import url('//at.alicdn.com/t/font_3000910_ond89uzms1.css');
+@import url('//at.alicdn.com/t/font_3045076_i9px6w5w7rd.css');
+@import './common.scss';
+@import './element.scss';
+
+
+$color-primary: #409eff;
+$color-primary-hober: #66b1ff;
+
+* {
+  padding: 0px;
+  box-sizing: inherit;
+  margin: 0px;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5fae\8f6f\96c5\9ed1",Arial,sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#app {
+  height: 100%;
+}
+
+// 菜单样式
+.el-menu {
+  font-size: 12px;
+}
+.el-sub-menu .el-menu-item,
+.el-menu .el-sub-menu .el-sub-menu__title {
+  height: 45px !important;
+  line-height: 45px !important;
+}
+
+.el-menu > .layout-aside-menu__1 > .el-sub-menu__title {
+  height: 52px !important;
+  line-height: 52px !important;
+}
+
+.layout-aside-menu__2,
+.layout-aside-menu__2 > .el-sub-menu__title {
+  background: #2b2e3c !important;
+}
+
+.layout-aside-menu__3,
+.layout-aside-menu__3 > .el-sub-menu__title {
+  background: #272934 !important;
+}
+
+.el-sub-menu__title:hover {
+  color: #fff !important;
+}
+.el-menu .el-menu-item.is-active {
+  background: $color-primary !important;
+}
+.el-menu .el-menu-item:hover {
+  color: #fff !important;
+  background: $color-primary-hober !important;
+}
