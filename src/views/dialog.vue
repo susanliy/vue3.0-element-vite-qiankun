@@ -1,6 +1,10 @@
 <template>
   <div>
-    <base-diolog ref="dialogRef">
+    <base-diolog
+      :dialog-show="dialogVisible"
+      @close-dialog="closeDialog"
+      @comfirm="closeDialog"
+    >
       <template #default>
         <base-from
           ref="formRef"
@@ -14,7 +18,7 @@
 </template>
 <script>
 import BaseFrom from '@/components/BaseFrom.vue'
-import { defineComponent, reactive, toRefs } from 'vue'
+import { defineComponent, reactive, toRefs, ref } from 'vue'
 import BaseDiolog from '../components/BaseDialog.vue'
 
 export default defineComponent({
@@ -22,12 +26,8 @@ export default defineComponent({
     BaseDiolog,
     BaseFrom,
   },
-  props: {
-    id: Number,
-  },
-  setup(props) {
-    console.log(props, 'props3')
-
+  emits: ['closeDialog'],
+  setup() {
     const formJson = [
       {
         require: true,
@@ -66,10 +66,20 @@ export default defineComponent({
         date: '',
       },
     })
-
+    //弹窗控制
+    const dialogVisible = ref(false)
+    const openDialog = () => {
+      dialogVisible.value = true
+    }
+    const closeDialog = () => {
+      dialogVisible.value = false
+    }
     return {
+      closeDialog,
       formJson,
       ...toRefs(state),
+      openDialog,
+      dialogVisible,
     }
   },
 })
