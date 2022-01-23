@@ -7,8 +7,8 @@
       @sort-change="sortChange"
     >
       <template #actionSlot>
-        <el-button type="text">确 定</el-button>
-        <el-button type="text">取 消</el-button>
+        <el-button v-has="['add']" type="text">确 定</el-button>
+        <el-button v-has="['bbb']" type="text">取 消</el-button>
       </template>
     </base-table>
     <base-page-setting :total="4"></base-page-setting>

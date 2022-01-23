@@ -7,6 +7,8 @@ import 'element-plus/theme-chalk/src/message.scss'
 import common from './plugin/common'
 import axios from '@/plugin/axiosSet'
 import actions from '@/service/function/actions'
+import permission from './directives/permission'
+
 import {
   renderWithQiankun,
   qiankunWindow,
@@ -33,6 +35,7 @@ function render(props: any = {}) {
   instance
     .use(routes)
     .use(store)
+    .use(permission)
     .mount(container ? container.querySelector('#app') : '#app')
   if (qiankunWindow.__POWERED_BY_QIANKUN__) {
     console.log('我正在作为子应用运行')
