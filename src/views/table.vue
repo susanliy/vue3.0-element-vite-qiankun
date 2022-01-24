@@ -1,7 +1,8 @@
 <template>
   <div>
+    aa{{ testData }}
     <base-table
-      :list="list"
+      :list="testData"
       :columns="columns"
       :sort-list="['state', 'createTime']"
       @sort-change="sortChange"
@@ -17,40 +18,10 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import { tableListApi } from '../api/table'
 
 export default defineComponent({
   setup() {
-    const list = ref([
-      {
-        id: '24',
-        title: '编号3',
-        state: 0,
-        createTime: '2021-09-23T17:57:09',
-        remark: '自定义',
-      },
-      {
-        id: '23',
-        title: '编号4',
-        state: 1,
-        createTime: '2021-09-23T17:57:19',
-        remark: '自定义',
-      },
-      {
-        id: '23',
-        title: '编号5',
-        state: 2,
-        createTime: '2021-09-23T17:57:29',
-        remark: '自定义',
-      },
-      {
-        id: '23',
-        title: '编号5',
-        state: 1,
-        createTime: '2021-09-23T17:57:39',
-        remark: '自定义111',
-      },
-    ])
-
     const columns = ref([
       {
         prop: 'id',
@@ -92,15 +63,11 @@ export default defineComponent({
       //传递参数
     }
 
-    // const { ctx } = getCurrentInstance() as any
-    // console.log('ctx', ctx, ctx._)
-    // //需要进行全局的命名吧，太长
-    // const { $axios } = ctx._.appContext.config.globalProperties
-
-    // $axios.get('/bsapi/main/auth/init').then((res: any) => {
-    //   console.log(res)
-    // })
-    return { list, columns, sortChange }
+    let testData = ref([])
+    tableListApi().then((res: any) => {
+      testData.value = res?.data.list
+    })
+    return { columns, sortChange, testData }
   },
 })
 </script>

@@ -5,7 +5,7 @@ import '@/assets/styles/app.scss'
 import { store } from './store'
 import 'element-plus/theme-chalk/src/message.scss'
 import common from './plugin/common'
-import axios from '@/plugin/axiosSet'
+import axiosSet from '@/plugin/axiosSet'
 import actions from '@/service/function/actions'
 import permission from './directives/permission'
 
@@ -15,13 +15,12 @@ import {
 } from 'vite-plugin-qiankun/dist/helper'
 
 const app = createApp(App)
-
 common(app)
 //element 全局默认大小为small
 app.config.globalProperties.$ELEMENT = {
   size: 'small',
 }
-app.config.globalProperties.$axios = axios
+app.config.globalProperties.$axios = axiosSet
 
 //qiankun 子应用
 let instance: any = null
