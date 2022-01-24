@@ -18,7 +18,7 @@ module.exports = {
   plugins: ['vue', '@typescript-eslint'],
   rules: {
     'vue/multi-word-component-names': 'off',
-    indent: ['error', 2],
+    // indent: ['error', 2],
     semi: ['error', 'never'],
   },
 }
