@@ -9,6 +9,8 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { name } from './package.json'
 import { viteMockServe } from 'vite-plugin-mock'
+import OptimizationPersist from 'vite-plugin-optimize-persist' //优化--初始化的时候提前加载依赖（针对开发环境）
+import PkgConfig from 'vite-plugin-package-config'
 
 // useDevMode 开启时与热更新插件冲突
 const useDevMode = true // 如果是在主应用中加载子应用vite,必须打开这个,否则vite加载不成功, 单独运行没影响
@@ -16,6 +18,8 @@ const useDevMode = true // 如果是在主应用中加载子应用vite,必须打
 export default defineConfig(() => {
   let config = {
     plugins: [
+      PkgConfig(),
+      OptimizationPersist(),
       vue(),
       vueJsx(),
       qiankun('vite-vue-ts', { useDevMode }),

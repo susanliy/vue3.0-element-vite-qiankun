@@ -24,6 +24,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'asyncDialog',
         meta: { title: '异步加载弹窗', icon: 'tag' },
       },
+      {
+        path: '/test',
+        component: () => import('@/views/test.vue'),
+        name: 'test',
+        meta: { title: '测试页', icon: 'tag' },
+      },
     ],
   },
   //todo--qiankun
