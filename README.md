@@ -15,7 +15,11 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 表格封装
 表单封装
 弹窗封装
+作为qiankun子应用嵌入旧页面(完成)
 
 
 to do 
-作为qiankun子应用嵌入旧页面
+axios的封装
+一些基本功能的hooks封装
+cookie及token的接入
+
