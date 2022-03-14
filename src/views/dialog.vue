@@ -16,10 +16,11 @@
     </base-diolog>
   </div>
 </template>
-<script>
+<script lang="ts">
 import BaseFrom from '@/components/BaseFrom.vue'
-import { defineComponent, reactive, toRefs, ref } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 import BaseDiolog from '../components/BaseDialog.vue'
+import useDialogVisible from '@/components/hooks/useDialogVisible'
 
 export default defineComponent({
   components: {
@@ -66,14 +67,9 @@ export default defineComponent({
         date: '',
       },
     })
+
     //弹窗控制
-    const dialogVisible = ref(false)
-    const openDialog = () => {
-      dialogVisible.value = true
-    }
-    const closeDialog = () => {
-      dialogVisible.value = false
-    }
+    const { openDialog, closeDialog, dialogVisible } = useDialogVisible()
     return {
       closeDialog,
       formJson,

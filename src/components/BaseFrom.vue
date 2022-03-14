@@ -78,7 +78,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { computed, defineComponent, reactive, toRefs, ref, watch } from 'vue'
 export default defineComponent({
   name: 'BaseFrom',

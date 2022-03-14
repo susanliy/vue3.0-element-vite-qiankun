@@ -9,11 +9,20 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { name } from './package.json'
 import { viteMockServe } from 'vite-plugin-mock'
-import OptimizationPersist from 'vite-plugin-optimize-persist' //优化--初始化的时候提前加载依赖（针对开发环境）
+
+//提供gzip
+import viteCompression from 'vite-plugin-compression'
+
+//优化--初始化的时候提前加载依赖（针对开发环境）
+import OptimizationPersist from 'vite-plugin-optimize-persist'
 import PkgConfig from 'vite-plugin-package-config'
 
 // useDevMode 开启时与热更新插件冲突
 const useDevMode = true // 如果是在主应用中加载子应用vite,必须打开这个,否则vite加载不成功, 单独运行没影响
+
+const pathResolve = (dir: string) => {
+  return resolve(process.cwd(), '.', dir)
+}
 // https://vitejs.dev/config/
 export default defineConfig(() => {
   let config = {
@@ -22,6 +31,20 @@ export default defineConfig(() => {
       OptimizationPersist(),
       vue(),
       vueJsx(),
+      viteCompression({
+        // 是否在控制台输出压缩结果
+        verbose: true,
+        // 是否禁用
+        disable: false,
+        // 体积大于 threshold 才会被压缩,单位 b
+        threshold: 10240,
+        // 压缩算法
+        algorithm: 'gzip',
+        // 生成的压缩包后缀
+        ext: '.gz',
+        // 压缩后是否删除源文件
+        deleteOriginFile: false,
+      }),
       qiankun('vite-vue-ts', { useDevMode }),
       eslintPlugin({
         cache: false,
@@ -57,9 +80,24 @@ export default defineConfig(() => {
       jsonpFunction: `webpackJsonp_${name}`,
     },
     resolve: {
-      alias: {
-        '@': resolve('./src'),
-      },
+      alias: [
+        {
+          find: '@',
+          replacement: pathResolve('src'),
+        },
+        {
+          find: '@images',
+          replacement: pathResolve('src/assets/images'),
+        },
+        {
+          find: '@svg',
+          replacement: pathResolve('src/assets/svg'),
+        },
+        {
+          find: '#',
+          replacement: pathResolve('types'),
+        },
+      ],
     },
 
     server: {
