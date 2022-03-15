@@ -1,14 +1,13 @@
+import { encryptBySha1 } from '@/utils/cipher'
 import { isObject, isString } from '@/utils/is'
 
-//todo --需统一
-declare type Recordable<T = any> = Record<string, T>
-
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss'
+const sercet = 'oj878:;;?@#-=UFfHFUwTs!SNJHUFp!{[d}'
 
-// export function joinTimestamp<T extends boolean>(
-//   join: boolean,
-//   restful: T,
-// ): T extends true ? string : object
+export function joinTimestamp<T extends boolean>(
+  join: boolean,
+  restful: T,
+): T extends true ? string : object
 
 export function joinTimestamp(join: boolean, restful = false): string | object {
   if (!join) {
@@ -24,7 +23,7 @@ export function joinTimestamp(join: boolean, restful = false): string | object {
 /**
  * @description: Format request parameter time
  */
-export function formatRequestDate(params: Recordable) {
+export function formatRequestDate(params: any) {
   if (Object.prototype.toString.call(params) !== '[object Object]') {
     return
   }
@@ -48,4 +47,12 @@ export function formatRequestDate(params: Recordable) {
       formatRequestDate(params[key])
     }
   }
+}
+
+export function getHeaders() {
+  const stamp = new Date().getTime()
+  const nonce = Math.floor(Math.random() * 999999)
+  const sercetKey = sercet + stamp + nonce
+  const sign = encryptBySha1(sercetKey)
+  return { stamp, nonce, sercetKey, sign }
 }

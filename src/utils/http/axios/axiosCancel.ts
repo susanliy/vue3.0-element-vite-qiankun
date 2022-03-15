@@ -1,5 +1,3 @@
-//取消重复请求--避免重复请求
-
 import type { AxiosRequestConfig, Canceler } from 'axios'
 import axios from 'axios'
 import { isFunction } from '@/utils/is'
