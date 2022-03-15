@@ -4,7 +4,7 @@
   </el-config-provider>
 </template>
 
-<script>
+<script lang="ts">
 import { ElConfigProvider } from 'element-plus'
 import { ref } from 'vue'
 import zhLocale from 'element-plus/lib/locale/lang/zh-cn'

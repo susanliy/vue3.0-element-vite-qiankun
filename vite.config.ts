@@ -55,7 +55,9 @@ export default defineConfig(() => {
         resolvers: [ElementPlusResolver()],
       }),
       Components({
+        dirs: ['src/components'],
         resolvers: [ElementPlusResolver()],
+        dts: 'type/components.d.ts',
       }),
       //添加mock板块
       viteMockServe({

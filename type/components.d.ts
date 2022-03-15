@@ -4,10 +4,10 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    BaseDialog: typeof import('./src/components/BaseDialog.vue')['default']
-    BaseFrom: typeof import('./src/components/BaseFrom.vue')['default']
-    BasePageSetting: typeof import('./src/components/BasePageSetting.vue')['default']
-    BaseTable: typeof import('./src/components/BaseTable.vue')['default']
+    BaseDialog: typeof import('./../src/components/BaseDialog.vue')['default']
+    BaseFrom: typeof import('./../src/components/BaseFrom.vue')['default']
+    BasePageSetting: typeof import('./../src/components/BasePageSetting.vue')['default']
+    BaseTable: typeof import('./../src/components/BaseTable.vue')['default']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
