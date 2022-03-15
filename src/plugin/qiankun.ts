@@ -1,3 +1,4 @@
+import App from '@/App.vue'
 import {
   renderWithQiankun,
   qiankunWindow,
@@ -7,7 +8,6 @@ import actions from '@/service/function/actions'
 import { store } from '@/store'
 import permission from '@/directives/permission'
 import { createApp } from 'vue'
-import App from './App.vue'
 
 //qiankun 子应用
 let instance: any = null
