@@ -10,21 +10,8 @@ This template should help get you started developing with Vue 3 and Typescript i
 
 Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
 
-done
-实现基于element-plus
-表格封装
-表单封装
-弹窗封装
-作为qiankun子应用嵌入旧页面(完成)
+done 实现基于 element-plus 表格封装表单封装弹窗封装作为 qiankun 子应用嵌入旧页面(完成)
 
+to do axios 的封装一些基本功能的 hooks 封装 cookie 及 token 的接入
 
-to do 
-axios的封装
-一些基本功能的hooks封装
-cookie及token的接入
-
-css mixin的使用
-文件夹的规范
-自定义的色彩
-
-
+css mixin 的使用文件夹的规范自定义的色彩

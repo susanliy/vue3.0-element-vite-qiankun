@@ -1,3 +1,3 @@
-import $axios from 'axios'
+import $axios from 'axios';
 
-export const tableListApi = () => $axios.post('/dev/api/courses/list')
+export const tableListApi = () => $axios.post('/dev/api/courses/list');

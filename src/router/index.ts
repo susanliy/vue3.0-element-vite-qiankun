@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -43,11 +43,11 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   //   name: 'backstage',
   //   component: () => import('@/views/backstage.vue'),
   // },
-]
+];
 
 export const router = createRouter({
   history: createWebHashHistory(),
   routes: constantRoutes,
-})
+});
 
-export default router
+export default router;

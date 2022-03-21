@@ -26,4 +26,4 @@ export default {
     errMsg505: 'http版本不支持该请求!',
     errMsgDefault: '系统异常，请联系管理员!',
   },
-}
+};

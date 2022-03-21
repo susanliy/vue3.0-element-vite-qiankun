@@ -1,33 +1,33 @@
 /** 初始化 */
 export type Init = {
   admin: {
-    userName: string
-    realName: string
-  }
-  menus: Menu[]
-  permissions: string[]
+    userName: string;
+    realName: string;
+  };
+  menus: Menu[];
+  permissions: string[];
   popup?: {
-    title: string
-    route: string
-  }
+    title: string;
+    route: string;
+  };
   routes: {
-    login: string
-    logout: string
-    changePwd: string
-  }
-}
+    login: string;
+    logout: string;
+    changePwd: string;
+  };
+};
 
 /** 菜单结构 */
 export type Menu = {
-  path: string
-  component: any
-  name: string
+  path: string;
+  component: any;
+  name: string;
   meta: {
-    title: string
-    icon: string
-  }
-  children?: Menu[]
-}
+    title: string;
+    icon: string;
+  };
+  children?: Menu[];
+};
 
 // /** 菜单结构 */
 // export type Menu = {

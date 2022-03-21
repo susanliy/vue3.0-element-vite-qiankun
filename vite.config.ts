@@ -1,28 +1,28 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
-import eslintPlugin from 'vite-plugin-eslint'
-import qiankun from 'vite-plugin-qiankun' //目前vite不支持qiankun  从而引入组件
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import { name } from './package.json'
-import { viteMockServe } from 'vite-plugin-mock'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path';
+import eslintPlugin from 'vite-plugin-eslint';
+import qiankun from 'vite-plugin-qiankun'; //目前vite不支持qiankun  从而引入组件
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import vueJsx from '@vitejs/plugin-vue-jsx';
+import { name } from './package.json';
+import { viteMockServe } from 'vite-plugin-mock';
 
 //提供gzip
-import viteCompression from 'vite-plugin-compression'
+import viteCompression from 'vite-plugin-compression';
 
 //优化--初始化的时候提前加载依赖（针对开发环境）
-import OptimizationPersist from 'vite-plugin-optimize-persist'
-import PkgConfig from 'vite-plugin-package-config'
+import OptimizationPersist from 'vite-plugin-optimize-persist';
+import PkgConfig from 'vite-plugin-package-config';
 
 // useDevMode 开启时与热更新插件冲突
-const useDevMode = true // 如果是在主应用中加载子应用vite,必须打开这个,否则vite加载不成功, 单独运行没影响
+const useDevMode = true; // 如果是在主应用中加载子应用vite,必须打开这个,否则vite加载不成功, 单独运行没影响
 
 const pathResolve = (dir: string) => {
-  return resolve(process.cwd(), '.', dir)
-}
+  return resolve(process.cwd(), '.', dir);
+};
 // https://vitejs.dev/config/
 export default defineConfig(() => {
   let config = {
@@ -116,6 +116,6 @@ export default defineConfig(() => {
         },
       },
     },
-  }
-  return config
-})
+  };
+  return config;
+});

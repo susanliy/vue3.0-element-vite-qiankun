@@ -21,11 +21,7 @@
           <!--字典转换--->
           <template v-else-if="column.dictionary">
             <span>
-              {{
-                column.dictionary.find(
-                  (item) => item.code === scope.row[column.prop],
-                ).name
-              }}
+              {{ column.dictionary.find((item) => item.code === scope.row[column.prop]).name }}
             </span>
           </template>
           <span v-else>{{ scope.row[column.prop] }}</span>
@@ -34,66 +30,64 @@
     </template>
     <el-table-column label="操作">
       <template #default="scope">
-        <slot v-bind="scope" name="actionSlot" />
+        <slot v-bind="scope" name="actionSlot"></slot>
       </template>
     </el-table-column>
   </el-table>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { StringObjType } from './helpers'
+  import { defineComponent } from 'vue';
+  import { StringObjType } from './helpers';
 
-export default defineComponent({
-  name: 'BaseTable',
-  props: {
-    // 数据列表
-    list: {
-      type: Array,
-      default: () => [],
-    },
-    // 需要展示的列 === prop：列数据对应的属性，label：列名，align：对齐方式，width：列宽
-    columns: {
-      type: Array,
-      default: () => [],
-    },
-    sortList: {
-      // 需要开启排序的列
-      type: Array,
-      default: () => {
-        return []
+  export default defineComponent({
+    name: 'BaseTable',
+    props: {
+      // 数据列表
+      list: {
+        type: Array,
+        default: () => [],
+      },
+      // 需要展示的列 === prop：列数据对应的属性，label：列名，align：对齐方式，width：列宽
+      columns: {
+        type: Array,
+        default: () => [],
+      },
+      sortList: {
+        // 需要开启排序的列
+        type: Array,
+        default: () => {
+          return [];
+        },
       },
     },
-  },
-  emits: ['sortChange'],
-  setup(props, context) {
-    const normalColumns = props.columns.filter((item: any) => !item.type)
+    emits: ['sortChange'],
+    setup(props, context) {
+      const normalColumns = props.columns.filter((item: any) => !item.type);
 
-    const sortType: StringObjType = {
-      ascending: 'asc',
-      descending: 'desc',
-    }
-    //todo 排序的字段名key需要固定
-    //排序点击传出参数
-    const sortChange = (column: { order: any; prop: any }) => {
-      let order = sortType[column.order]
-      const sortParam = order
-        ? { sort_key: column.prop, sort_order: order }
-        : {}
-      console.log('---sortParam----', sortParam)
-      context.emit('sortChange', sortParam)
-    }
-    //后端进行排序
-    const sortFun = (val: string) => {
-      const temp = props.sortList.find((item) => {
-        return item === val
-      })
-      return temp ? 'custom' : false
-    }
-    return {
-      normalColumns,
-      sortChange,
-      sortFun,
-    }
-  },
-})
+      const sortType: StringObjType = {
+        ascending: 'asc',
+        descending: 'desc',
+      };
+      //todo 排序的字段名key需要固定
+      //排序点击传出参数
+      const sortChange = (column: { order: any; prop: any }) => {
+        let order = sortType[column.order];
+        const sortParam = order ? { sort_key: column.prop, sort_order: order } : {};
+        console.log('---sortParam----', sortParam);
+        context.emit('sortChange', sortParam);
+      };
+      //后端进行排序
+      const sortFun = (val: string) => {
+        const temp = props.sortList.find((item) => {
+          return item === val;
+        });
+        return temp ? 'custom' : false;
+      };
+      return {
+        normalColumns,
+        sortChange,
+        sortFun,
+      };
+    },
+  });
 </script>

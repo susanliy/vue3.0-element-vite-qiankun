@@ -1,7 +1,7 @@
-import { Menu } from '@/service/dataType/main'
-import { MutationTree } from 'vuex'
-import { MenuStateInterface } from './state'
-import { ElMessage } from 'element-plus'
+import { Menu } from '@/service/dataType/main';
+import { MutationTree } from 'vuex';
+import { MenuStateInterface } from './state';
+import { ElMessage } from 'element-plus';
 
 const mutation: MutationTree<MenuStateInterface> = {
   SET_MENUS(state) {
@@ -33,35 +33,35 @@ const mutation: MutationTree<MenuStateInterface> = {
           },
         ],
       },
-    ]
+    ];
   },
 
   //添加导航栏
   ADD_NAVIGATE(state, view: Menu) {
-    if (state.navigation.some((v) => v.path === view.path)) return
+    if (state.navigation.some((v) => v.path === view.path)) return;
     if (state.navigation.length > 9) {
       ElMessage({
         message: '页面最多展示10个标签',
         type: 'warning',
-      })
-      return
+      });
+      return;
     }
-    const views = JSON.parse(JSON.stringify(view))
+    const views = JSON.parse(JSON.stringify(view));
     const data = Object.assign({}, views, {
       title: views.meta?.title || 'no-name',
-    })
-    state.navigation.push(data)
+    });
+    state.navigation.push(data);
   },
 
   //删除导航栏
   DEL_NAVIGATE(state, view: Menu) {
     for (const [i, v] of state.navigation.entries()) {
       if (v.path === view.path) {
-        state.navigation.splice(i, 1)
-        break
+        state.navigation.splice(i, 1);
+        break;
       }
     }
   },
-}
+};
 
-export default mutation
+export default mutation;

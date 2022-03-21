@@ -6,11 +6,7 @@
       </div>
     </div>
     <div class="flex-center">
-      <el-cascader
-        v-model="module"
-        :options="moduleOptions"
-        class="layout-aside-module"
-      ></el-cascader>
+      <el-cascader v-model="module" :options="moduleOptions" class="layout-aside-module" />
     </div>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
@@ -35,73 +31,73 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import MainAsideMenu from './MainAsideMenu.vue'
-import { constantRoutes } from '@/router'
+  import { defineComponent, ref } from 'vue';
+  import MainAsideMenu from './MainAsideMenu.vue';
+  import { constantRoutes } from '@/router';
 
-export default defineComponent({
-  name: 'MainAside',
-  components: {
-    MainAsideMenu,
-  },
-  setup() {
-    const module = ref<string>()
-    const moduleOptions: unknown[] = [
-      {
-        value: '11',
-        label: '11',
-        children: [
-          {
-            value: '22',
-            label: '22',
-          },
-          {
-            value: '33',
-            label: '33',
-          },
-        ],
-      },
-    ]
+  export default defineComponent({
+    name: 'MainAside',
+    components: {
+      MainAsideMenu,
+    },
+    setup() {
+      const module = ref<string>();
+      const moduleOptions: unknown[] = [
+        {
+          value: '11',
+          label: '11',
+          children: [
+            {
+              value: '22',
+              label: '22',
+            },
+            {
+              value: '33',
+              label: '33',
+            },
+          ],
+        },
+      ];
 
-    return {
-      module,
-      moduleOptions,
-      constantRoutes,
-    }
-  },
-})
+      return {
+        module,
+        moduleOptions,
+        constantRoutes,
+      };
+    },
+  });
 </script>
 
 <style lang="scss" scoped>
-$bgColor: #303445;
-.layout-aside {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1001;
-  height: 100%;
-  width: 250px;
-  overflow: hidden;
-  font-size: 0;
-  background-color: $bgColor;
-  transition: width 0.28s;
-  .logo-img {
-    height: 60px;
-  }
-  :deep(.layout-aside-module) {
-    width: 100%;
-    padding: 10px 15px;
-    .el-input .el-input__inner {
-      font-size: 13px;
-      font-weight: 600;
-      height: 36px;
-      line-height: 36px;
+  $bgColor: #303445;
+  .layout-aside {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    height: 100%;
+    width: 250px;
+    overflow: hidden;
+    font-size: 0;
+    background-color: $bgColor;
+    transition: width 0.28s;
+    .logo-img {
+      height: 60px;
+    }
+    :deep(.layout-aside-module) {
+      width: 100%;
+      padding: 10px 15px;
+      .el-input .el-input__inner {
+        font-size: 13px;
+        font-weight: 600;
+        height: 36px;
+        line-height: 36px;
+      }
+    }
+    &__menus {
+      font-size: 12px;
+      border-right: 0;
     }
   }
-  &__menus {
-    font-size: 12px;
-    border-right: 0;
-  }
-}
 </style>

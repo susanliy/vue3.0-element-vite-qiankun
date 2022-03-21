@@ -1,7 +1,7 @@
 <template>
   <el-header class="layout-header">
-    <i class="iconfont icon-navigation" />
-    <breadcrumb></breadcrumb>
+    <i class="iconfont icon-navigation"></i>
+    <breadcrumb />
     <div class="layout-header__user">
       <el-dropdown size="small" @visible-change="dropdownChange">
         <div class="user">
@@ -26,72 +26,72 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import Breadcrumb from '../header/Breadcrumb.vue'
+  import { defineComponent, ref } from 'vue';
+  import Breadcrumb from '../header/Breadcrumb.vue';
 
-export default defineComponent({
-  name: 'MainHeader',
-  components: {
-    Breadcrumb,
-  },
-  setup() {
-    const isDropdown = ref<boolean>(false)
-    const dropdownChange = (val: boolean) => (isDropdown.value = val)
-    return {
-      isDropdown,
-      dropdownChange,
-    }
-  },
-})
+  export default defineComponent({
+    name: 'MainHeader',
+    components: {
+      Breadcrumb,
+    },
+    setup() {
+      const isDropdown = ref<boolean>(false);
+      const dropdownChange = (val: boolean) => (isDropdown.value = val);
+      return {
+        isDropdown,
+        dropdownChange,
+      };
+    },
+  });
 </script>
 
 <style lang="scss">
-.el-header {
-  --el-header-padding: 0 10px;
-}
-.layout-header {
-  overflow: hidden;
-  line-height: 50px;
-  color: #606266;
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  height: 50px;
-  &__breadcrumb {
-    font-weight: 500;
-    margin-left: 20px;
-    line-height: 50px;
-    font-size: 13px;
-    .iconfont {
-      float: left;
-      font-size: 20px;
-      margin-right: 8px;
-    }
+  .el-header {
+    --el-header-padding: 0 10px;
   }
-  &__user {
-    margin-left: auto;
-    .user {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      line-height: 30px;
-      .nick {
-        overflow: hidden;
-        text-align: center;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        font-size: 14px;
-        font-weight: 500;
-      }
+  .layout-header {
+    overflow: hidden;
+    line-height: 50px;
+    color: #606266;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    height: 50px;
+    &__breadcrumb {
+      font-weight: 500;
+      margin-left: 20px;
+      line-height: 50px;
+      font-size: 13px;
       .iconfont {
-        font-size: 14px;
-        margin: 0 8px;
-        &.iconfont-user {
-          font-weight: 600;
+        float: left;
+        font-size: 20px;
+        margin-right: 8px;
+      }
+    }
+    &__user {
+      margin-left: auto;
+      .user {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        line-height: 30px;
+        .nick {
+          overflow: hidden;
+          text-align: center;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-size: 14px;
+          font-weight: 500;
+        }
+        .iconfont {
+          font-size: 14px;
+          margin: 0 8px;
+          &.iconfont-user {
+            font-weight: 600;
+          }
         }
       }
     }
   }
-}
 </style>

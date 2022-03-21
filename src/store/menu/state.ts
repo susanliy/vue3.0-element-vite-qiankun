@@ -1,9 +1,9 @@
-import { Menu } from '@/service/dataType/main'
+import { Menu } from '@/service/dataType/main';
 
 export interface MenuStateInterface {
-  menus: Menu[]
-  navigation: Menu[]
-  permission: string[]
+  menus: Menu[];
+  navigation: Menu[];
+  permission: string[];
 }
 
 function state(): MenuStateInterface {
@@ -11,7 +11,7 @@ function state(): MenuStateInterface {
     menus: [],
     navigation: [],
     permission: ['add', 'edit', 'delete'],
-  }
+  };
 }
 
-export default state
+export default state;

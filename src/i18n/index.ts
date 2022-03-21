@@ -1,6 +1,6 @@
-import { createI18n } from 'vue-i18n'
-import en from './lang/en'
-import cn from './lang/cn'
+import { createI18n } from 'vue-i18n';
+import en from './lang/en';
+import cn from './lang/cn';
 
 export const i18n = createI18n({
   legacy: false,
@@ -11,6 +11,6 @@ export const i18n = createI18n({
     en,
     cn,
   },
-})
+});
 
-export const t = i18n.global.t
+export const t = i18n.global.t;

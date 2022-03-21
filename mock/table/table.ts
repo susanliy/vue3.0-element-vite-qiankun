@@ -1,5 +1,5 @@
-import { resultSuccessnew } from '../_util'
-import { MockMethod } from 'vite-plugin-mock'
+import { resultSuccessnew } from '../_util';
+import { MockMethod } from 'vite-plugin-mock';
 
 const course_list = {
   page: 1,
@@ -35,7 +35,7 @@ const course_list = {
       remark: '自定义111',
     },
   ],
-}
+};
 
 export default [
   {
@@ -43,7 +43,7 @@ export default [
     timeout: 1000,
     method: 'post',
     response: () => {
-      return resultSuccessnew(course_list)
+      return resultSuccessnew(course_list);
     },
   },
-] as MockMethod[]
+] as MockMethod[];
