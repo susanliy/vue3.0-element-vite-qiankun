@@ -5,6 +5,7 @@ import actions from '@/service/function/actions';
 import { store } from '@/store';
 import permission from '@/directives/permission';
 import { createApp } from 'vue';
+import { i18n } from '@/i18n/index';
 
 //qiankun 子应用
 let instance: any = null;
@@ -18,6 +19,7 @@ function render(props: any = {}) {
   instance
     .use(routes)
     .use(store)
+    .use(i18n)
     .use(permission)
     .mount(container ? container.querySelector('#app') : '#app');
 }

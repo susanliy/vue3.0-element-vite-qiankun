@@ -93,6 +93,7 @@
         "element-plus/lib/locale/lang/zh-cn",
         "vite-plugin-qiankun/dist/helper",
         "vue",
+        "vue-i18n",
         "vue-router",
         "vuex"
       ]

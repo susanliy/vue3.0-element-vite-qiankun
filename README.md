@@ -12,18 +12,18 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 done 实现基于 element-plus 表格封装表单封装弹窗封装作为 qiankun 子应用嵌入旧页面(完成)
 
+vue自带的国际化的使用
+对于cookie 有封装的工具 
+css mixin 的使用文件夹的规范自定义的色彩
+
 to do 
 axios 的封装一些基本功能的 hooks 封装 cookie 及 token 的接入
-
-对于cookie 有封装的工具 
-
-css mixin 的使用文件夹的规范自定义的色彩
 
 添加echarts的使用
 
 多个项目去调通qiankun的使用
 
-vue自带的国际化的使用
+
 
 
 
