@@ -30,6 +30,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'test',
         meta: { title: '测试页', icon: 'tag' },
       },
+      {
+        path: '/hooksPage',
+        component: () => import('@/views/hooksPage.vue'),
+        name: 'hooksPage',
+        meta: { title: '钩子页', icon: 'tag' },
+      },
     ],
   },
   //todo--qiankun
