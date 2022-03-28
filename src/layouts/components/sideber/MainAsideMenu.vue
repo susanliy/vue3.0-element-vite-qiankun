@@ -29,32 +29,28 @@
     </el-menu-item>
   </template>
 </template>
-<script lang="ts">
-  import { defineComponent } from 'vue';
-
+<script setup lang="ts">
   // 动态生成菜单跟子菜单，递归自身
-  const props = {
-    title: String,
-    route: String,
-    icon: String,
-    children: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-    menuLevel: {
-      type: Number,
-      default: 1,
-    },
+  type menusType = {
+    title: string;
+    route: string;
+    icon: string;
+    children: any;
+    menuLevel?: number;
   };
 
-  export default defineComponent({
-    name: 'MainAsideMenu',
-    props,
+  withDefaults(defineProps<menusType>(), {
+    children: [],
+    menuLevel: 1,
   });
 </script>
 
+<script lang="ts">
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    name: 'MainAsideMenu',
+  });
+</script>
 <style lang="scss" scoped>
   .menu-title {
     display: flex;

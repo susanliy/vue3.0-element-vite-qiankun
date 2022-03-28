@@ -1,7 +1,7 @@
 <template>
   <div width="250px" class="layout-aside">
     <div class="logo" @click="$router.push('/')">
-      <div class="flex-center logo-img">
+      <div class="logo-img">
         <img src="@/assets/images/logo.png" alt="logo" height="28" />
       </div>
     </div>
@@ -84,6 +84,7 @@
     transition: width 0.28s;
     .logo-img {
       height: 60px;
+      // @include flex(center, center);
     }
     :deep(.layout-aside-module) {
       width: 100%;

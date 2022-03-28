@@ -1,7 +1,7 @@
 /* eslint-disable semi */
 import { createApp } from 'vue';
 import App from './App.vue';
-import '@/assets/styles/app.scss';
+import '@/assets/css/app.scss';
 import 'element-plus/theme-chalk/src/message.scss';
 import axiosSet from '@/plugin/axiosSet';
 
