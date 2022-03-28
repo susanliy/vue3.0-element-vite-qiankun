@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="whole">
     just to test
     <div id="mainTE">父节点</div>
     <teleport to="#mainTE"><div>子节点</div></teleport>
@@ -8,3 +8,9 @@
 <script lang="ts" setup>
   /* ------- 测试乾坤用法------------- */
 </script>
+
+<style lang="scss" scoped>
+  .whole {
+    @include flex();
+  }
+</style>

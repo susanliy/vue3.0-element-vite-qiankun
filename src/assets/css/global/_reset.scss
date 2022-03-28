@@ -1,0 +1,108 @@
+/* 全局样式重置 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  // 这个样式勿动，会影响vant-list, 以及router的scrollBehavior功能
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+}
+
+body {
+  line-height: 1.5715;
+  font-family: sans-serif;
+  color: #333;
+  background-color: #f6f7f9;
+}
+
+#app {
+  font-size: 24px;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+dd,
+p,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select,
+button,
+hr,
+blockquote,
+dt,
+li,
+pre,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+table {
+  font-size: inherit;
+}
+
+input,
+select {
+  font-size: 100%;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: normal;
+}
+
+button {
+  overflow: visible;
+}
+
+li {
+  list-style: none outside none;
+}
+
+fieldset {
+  border: 0 none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0 none;
+}
+
+ins {
+  text-decoration: none;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  color: $black-2;
+}

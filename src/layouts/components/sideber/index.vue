@@ -84,7 +84,7 @@
     transition: width 0.28s;
     .logo-img {
       height: 60px;
-      // @include flex(center, center);
+      @include flex(center, center);
     }
     :deep(.layout-aside-module) {
       width: 100%;

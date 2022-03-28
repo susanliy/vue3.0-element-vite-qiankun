@@ -10,7 +10,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import { name } from './package.json';
 import { viteMockServe } from 'vite-plugin-mock';
 
-// import { primaryColor } from './src/assets/css/themeConfig';
+import { primaryColor } from './src/assets/css/themeConfig';
 
 //提供gzip
 import viteCompression from 'vite-plugin-compression';
@@ -103,15 +103,15 @@ export default defineConfig(() => {
         },
       ],
     },
-    // css: {
-    //   preprocessorOptions: {
-    //     scss: {
-    //       additionalData: `@import './src/assets/css/_mixin.scss';
-    //         $primaryColor: ${primaryColor};`,
-    //       charset: false,
-    //     },
-    //   },
-    // },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "./src/assets/css/var/index.scss" as *;
+          $primaryColor: ${primaryColor};`,
+          charset: false,
+        },
+      },
+    },
     server: {
       port: 7000,
       open: true, // 启动时自动打开

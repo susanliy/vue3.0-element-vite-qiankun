@@ -1,6 +1,5 @@
 <template>
   <div>
-    aa{{ testData }}
     <base-table
       :list="testData"
       :columns="columns"

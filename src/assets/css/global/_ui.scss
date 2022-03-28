@@ -1,0 +1,26 @@
+/* 覆盖ui组件库样式 */
+:root {
+  body {
+    --van-button-default-height: 36px;
+    --van-button-primary-background-color: #0453f3;
+    --van-button-primary-border-color: #0453f3;
+    --van-button-normal-padding: 0 26px;
+    --van-overlay-background-color: rgb(0 0 0 / 60%);
+    --van-tabs-bottom-bar-color: #0453f3;
+    --van-tab-active-text-color: #0453f3;
+    --van-tabs-bottom-bar-width: 18px;
+    --van-tabs-bottom-bar-height: 3px;
+    --van-tabs-line-height: 52px;
+    --van-tab-line-height: 18px;
+  }
+}
+
+#app {
+  .van-tab--active {
+    font-weight: bold;
+  }
+
+  .van-list__finished-text {
+    display: none;
+  }
+}
