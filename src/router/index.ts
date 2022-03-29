@@ -39,7 +39,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       {
         path: '/map-app/marker',
         name: '/map-app',
-        component: () => import('@/views/test.vue'),
+        component: () => import('@/views/qiankun/test.vue'),
         meta: { title: 'qiankun测试页', icon: 'tag' },
       },
     ],

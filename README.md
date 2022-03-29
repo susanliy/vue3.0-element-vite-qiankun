@@ -16,12 +16,14 @@ vue自带的国际化的使用
 对于cookie 有封装的工具 
 css mixin 的使用文件夹的规范自定义的色彩
 
+多个项目去调通qiankun的使用--能够打开及传值
+1.该项目作为qiankun的主应用
+2.子应用用的是别人的（https://github.com/aehyok/vue-qiankun/tree/dev/map-app-ts）
+
 to do 
 axios 的封装一些基本功能的 hooks 封装 cookie 及 token 的接入
 
-添加echarts的使用
 
-多个项目去调通qiankun的使用--能够打开及传值
 
 
 
