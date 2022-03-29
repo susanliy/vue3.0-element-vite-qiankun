@@ -86,6 +86,10 @@ export default defineConfig(() => {
     resolve: {
       alias: [
         {
+          find: 'vue-i18n',
+          replacement: 'vue-i18n/dist/vue-i18n.cjs.js',
+        },
+        {
           find: '@',
           replacement: pathResolve('src'),
         },
@@ -120,7 +124,7 @@ export default defineConfig(() => {
       proxy: {
         //代理
         '/infra': {
-          target: 'http://139.186.205.7:5000/api', // 用于测试代理接口--后期删除
+          target: 'http://139.186.205.7:5000', // 用于测试代理接口--后期删除
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/infra/, ''),
         },

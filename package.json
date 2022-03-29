@@ -91,6 +91,7 @@
         "element-plus/es/components/table-column/style/css",
         "element-plus/es/components/table/style/css",
         "element-plus/lib/locale/lang/zh-cn",
+        "qiankun",
         "vite-plugin-qiankun/dist/helper",
         "vue",
         "vue-i18n",

@@ -21,7 +21,7 @@ axios 的封装一些基本功能的 hooks 封装 cookie 及 token 的接入
 
 添加echarts的使用
 
-多个项目去调通qiankun的使用
+多个项目去调通qiankun的使用--能够打开及传值
 
 
 

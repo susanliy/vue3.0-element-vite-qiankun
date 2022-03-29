@@ -4,14 +4,20 @@ import App from './App.vue';
 import 'element-plus/theme-chalk/src/message.scss';
 import './assets/css/global/index.scss';
 import axiosSet from '@/plugin/axiosSet';
+import routes from '@/router';
+import { store } from '@/store';
+import { i18n } from '@/i18n/index';
 
-import useQianKun from '@/plugin/qiankun';
+import permission from '@/directives/permission';
 
 const app = createApp(App);
-//element 全局默认大小为small
 app.config.globalProperties.$ELEMENT = {
   size: 'small',
 };
 app.config.globalProperties.$axios = axiosSet;
 
-useQianKun();
+app.use(routes);
+app.use(store);
+app.use(i18n);
+app.use(permission);
+app.mount('#app');

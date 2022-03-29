@@ -24,26 +24,28 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'asyncDialog',
         meta: { title: '异步加载弹窗', icon: 'tag' },
       },
-      {
-        path: '/test',
-        component: () => import('@/views/test.vue'),
-        name: 'test',
-        meta: { title: '测试页', icon: 'tag' },
-      },
+      // {
+      //   path: '/test',
+      //   component: () => import('@/views/test.vue'),
+      //   name: 'test',
+      //   meta: { title: '测试页', icon: 'tag' },
+      // },
       {
         path: '/hooksPage',
         component: () => import('@/views/hooksPage.vue'),
         name: 'hooksPage',
         meta: { title: '钩子页', icon: 'tag' },
       },
+      {
+        path: '/map-app/marker',
+        name: '/map-app',
+        component: () => import('@/views/test.vue'),
+        meta: { title: 'qiankun测试页', icon: 'tag' },
+      },
     ],
   },
   //todo--qiankun
-  // {
-  //   path: '/map-app/marker',
-  //   name: '/map-app',
-  //   component: () => import('@/views/test.vue'),
-  // },
+
   // {
   //   path: '/bsapi/user/user/list',
   //   name: 'backstage',
