@@ -1,10 +1,10 @@
 <template>
   <div>
     just to test qiankun
-    <div class="whole">
+    <!-- <div class="whole">
       <P id="mainTE">11</P>
     </div>
-    <teleport to="#mainTE"><div>子节点</div></teleport>
+    <teleport to="#mainTE"><div>子节点</div></teleport> -->
 
     <div>{{ t('api.apiTimeoutMessage') }}</div>
     <div>

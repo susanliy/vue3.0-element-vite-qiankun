@@ -4,7 +4,6 @@ const initialState = {
   test: 111,
   //这里写初始化数据
 };
-
 // 初始化 state
 const actions = initGlobalState(initialState);
 actions.onGlobalStateChange((state, prev) => {
