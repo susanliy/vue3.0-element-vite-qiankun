@@ -6,6 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     BaseDialog: typeof import('./../src/components/BaseDialog.vue')['default']
     BaseFrom: typeof import('./../src/components/BaseFrom.vue')['default']
+    BaseFromNext: typeof import('./../src/components/BaseFromNext.vue')['default']
     BasePageSetting: typeof import('./../src/components/BasePageSetting.vue')['default']
     BaseTable: typeof import('./../src/components/BaseTable.vue')['default']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
@@ -16,6 +17,7 @@ declare module 'vue' {
     ElCheckboxGroup: typeof import('element-plus/es')['ElCheckboxGroup']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
@@ -26,15 +28,14 @@ declare module 'vue' {
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElOption: typeof import('element-plus/es')['ElOption']
-    ElPagination: typeof import('element-plus/es')['ElPagination']
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
-    ElTable: typeof import('element-plus/es')['ElTable']
-    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    SchemaForm: typeof import('./../src/components/schema-form/schema-form.vue')['default']
+    SchemaFormItem: typeof import('./../src/components/schema-form/schema-form-item.vue')['default']
   }
 }
 

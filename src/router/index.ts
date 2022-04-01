@@ -42,6 +42,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         component: () => import('@/views/qiankun/test.vue'),
         meta: { title: 'qiankun测试页', icon: 'tag' },
       },
+      {
+        path: '/antFrom',
+        name: '/antFrom',
+        component: () => import('@/views/antFrom.vue'),
+        meta: { title: 'ant封装表单', icon: 'tag' },
+      },
     ],
   },
   //todo--qiankun

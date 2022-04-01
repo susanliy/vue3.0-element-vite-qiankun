@@ -10,6 +10,7 @@
     "lint:prettier": "prettier --write ."
   },
   "dependencies": {
+    "ant-design-vue": "^3.0.0-alpha.14",
     "axios": "^0.24.0",
     "crypto-js": "^4.1.1",
     "element-plus": "^1.2.0-beta.5",
@@ -59,6 +60,8 @@
   "vite": {
     "optimizeDeps": {
       "include": [
+        "ant-design-vue",
+        "ant-design-vue/lib/form",
         "axios",
         "element-plus",
         "element-plus/es",
