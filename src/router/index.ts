@@ -37,6 +37,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         meta: { title: '钩子页', icon: 'tag' },
       },
       {
+        path: '/three3D',
+        name: '/three3D',
+        component: () => import('@/views/three3D/index.vue'),
+        meta: { title: 'three.js', icon: 'tag' },
+      },
+      {
         path: '/map-app/marker',
         name: '/map-app',
         component: () => import('@/views/qiankun/test.vue'),
