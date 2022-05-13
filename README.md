@@ -26,11 +26,19 @@ element-plus 的hooks学习
 vueUse的使用及是实现
 
 基于ant封装动态表单
---defineExpose 使用理解
+--defineExpose 使用理解--利用ref进行子集的抛出及父级的接收
 动态slot与render函数的使用
 jsx的使用
 proxy代理收集
 component的用法
+
+
+2022.05.15  todo
+数据改成用mock使用
+封装树形的列表可拖拽
+可拖拽可编辑的树形表格
+
+文件夹的整理  及readme的内容更改
 
 
 

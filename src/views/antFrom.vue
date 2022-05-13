@@ -1,65 +1,45 @@
 <template>
-  <div>
-    <a-card>
-      <schema-form
-        ref="dynamicForm"
-        :form-schema="formSchema"
-        :initialValues="initialValues"
-        class="btn-rows"
-      >
-        <template #operate-button>
-          <a-button type="primary" @click="confirm"> 确定 </a-button>
-          <a-button type="primary" @click="reset"> 重置 </a-button>
-        </template>
-      </schema-form>
-    </a-card>
-  </div>
+  <BaseAntFrom ref="dynamicForm" v-model:condition="queryForm" :items="formItems" />
 </template>
-
-<script lang="ts">
-  export default {
-    name: 'DemosFormRuleForm',
-  };
-</script>
-
 <script lang="ts" setup>
-  import { ref } from 'vue';
-  import { message } from 'ant-design-vue';
-  // import { SchemaForm } from '@/components/schema-form';
-  // import { schemas } from './form-schema';
-
-  /**
-   * @description 验证表单
-   */
-  const dynamicForm = ref<InstanceType<typeof SchemaForm>>();
-  const formSchema = {
-    layout: 'vertical',
-    labelCol: { span: 4 },
-    wrapperCol: { span: 14 },
-    labelAlign: 'right',
-    schemas,
+  const queryForm = {
+    username: '',
+    role_ids: [],
+    order_by: 'created:desc',
   };
-
-  //重置的数据
-  const initialValues = {};
-  //重置
-  const reset = () => {
-    dynamicForm.value?.resetFields().then(() => message.success('重置！'));
+  const formItems = {
+    role_ids: {
+      label: '角色',
+      component: 'select',
+      props: {
+        placeholder: '请选择角色',
+        allowClear: true,
+        mode: 'multiple',
+        showArrow: true,
+        options: [],
+      },
+      rules: [{ required: true, message: '请输入' }],
+    },
+    username: {
+      label: '用户名',
+      component: 'input',
+      props: {
+        placeholder: '请输入用户名或真实姓名',
+        allowClear: true,
+      },
+      rules: [{ required: true, message: '请输入' }],
+    },
+    order_by: {
+      label: '排序方式',
+      component: 'select',
+      props: {
+        placeholder: '请选择排序方式',
+        allowClear: true,
+        options: [
+          { label: '按创建时间', value: 'created:desc' },
+          { label: '按排序值', value: 'position:desc' },
+        ],
+      },
+    },
   };
-
-  // 点击提交
-  function confirm() {
-    //提交的值
-    console.log('dynamicForm.value', dynamicForm, dynamicForm.value?.formModel);
-
-    dynamicForm.value?.validate().then(() => message.success('验证通过！'));
-  }
 </script>
-
-<style lang="scss" scoped>
-  .btn-rows {
-    button {
-      margin-right: 12px;
-    }
-  }
-</style>
