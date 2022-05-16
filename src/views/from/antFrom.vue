@@ -6,7 +6,7 @@
     <a-button type="primary" @click="handleSearch">搜索</a-button>
   </div>
 
-  <h3>完整版表单</h3>
+  <h3 class="mt-30px">完整版表单 todo</h3>
 </template>
 <script lang="ts" setup>
   import { FormActionType } from '@/components/schema-form/types/form';

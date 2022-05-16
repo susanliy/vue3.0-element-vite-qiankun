@@ -56,7 +56,9 @@
     "vite-plugin-mock": "^2.9.6",
     "vite-plugin-optimize-persist": "^0.1.2",
     "vite-plugin-package-config": "^0.1.1",
-    "vue-tsc": "^0.3.0"
+    "vite-plugin-windicss": "^1.8.4",
+    "vue-tsc": "^0.3.0",
+    "windicss": "^3.5.3"
   },
   "vite": {
     "optimizeDeps": {

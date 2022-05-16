@@ -9,6 +9,7 @@ import { store } from '@/store';
 import { i18n } from '@/i18n/index';
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
+import 'virtual:windi.css';
 
 import permission from '@/directives/permission';
 

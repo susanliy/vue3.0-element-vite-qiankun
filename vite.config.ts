@@ -9,7 +9,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { name } from './package.json';
 import { viteMockServe } from 'vite-plugin-mock';
-
+import WindiCSS from 'vite-plugin-windicss';
 import { primaryColor } from './src/assets/css/themeConfig';
 
 //提供gzip
@@ -29,6 +29,7 @@ const pathResolve = (dir: string) => {
 export default defineConfig(() => {
   const config = {
     plugins: [
+      WindiCSS(),
       PkgConfig(),
       OptimizationPersist(),
       vue(),

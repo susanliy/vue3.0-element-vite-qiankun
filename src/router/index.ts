@@ -13,24 +13,16 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         meta: { title: '表格', icon: 'tag' },
       },
       {
+        path: '/ant-from',
+        name: '/antFrom',
+        component: () => import('@/views/from/antFrom.vue'),
+        meta: { title: '表单封装--ant', icon: 'tag' },
+      },
+      {
         path: '/from',
         component: () => import('@/views/from/elementFrom.vue'),
         name: 'from',
-        meta: { title: '表单', icon: 'tag' },
-        children: [
-          {
-            path: '/from',
-            component: () => import('@/views/from/elementFrom.vue'),
-            name: 'from',
-            meta: { title: 'element表单封装', icon: 'tag' },
-          },
-          {
-            path: '/antFrom',
-            name: '/antFrom',
-            component: () => import('@/views/from/antFrom.vue'),
-            meta: { title: 'ant表单封装', icon: 'tag' },
-          },
-        ],
+        meta: { title: '表单封装--element', icon: 'tag' },
       },
       {
         path: '/asyncDialog',
@@ -64,5 +56,5 @@ export const router = createRouter({
   history: createWebHashHistory(),
   routes: constantRoutes,
 });
-
+console.log('router', router);
 export default router;
