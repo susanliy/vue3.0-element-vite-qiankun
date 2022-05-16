@@ -37,7 +37,7 @@
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue';
-  import { StringObjType } from './helpers';
+  import { StringObjType } from '../helpers';
 
   export default defineComponent({
     name: 'BaseTable',

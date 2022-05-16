@@ -7,10 +7,16 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     meta: { title: '练习列表', icon: 'home' },
     children: [
       {
-        path: '/main',
-        component: () => import('@/views/table.vue'),
-        name: 'main',
+        path: '/table',
+        component: () => import('@/views/table/table.vue'),
+        name: 'table',
         meta: { title: '表格', icon: 'tag' },
+      },
+      {
+        path: '/drop-table',
+        component: () => import('@/views/table/DropTable.vue'),
+        name: 'DropTable',
+        meta: { title: '可拖拽表格', icon: 'tag' },
       },
       {
         path: '/ant-from',
