@@ -11,79 +11,70 @@
         @click.middle="closeSelectedTag(tag)"
       >
         <span>{{ tag.title }}</span>
-        <i class="iconfont iconfont-close" @click.prevent.stop="closeSelectedTag(tag)"></i>
+        <close-outlined
+          class="layout-navigation_icon"
+          @click.prevent.stop="closeSelectedTag(tag)"
+        />
       </router-link>
     </scroll-pane>
   </div>
 </template>
 
-<script lang="ts">
-  import { defineComponent, computed, watch } from 'vue';
+<script lang="ts" setup>
+  import { computed, watch } from 'vue';
   import { useStore } from '@/store';
   import { useRoute, useRouter } from 'vue-router';
   import ScrollPane from './ScrollPane.vue';
+  import { CloseOutlined } from '@ant-design/icons-vue';
 
-  export default defineComponent({
-    components: {
-      ScrollPane,
+  const { state, dispatch } = useStore();
+  const currentRoute = useRoute();
+  const router = useRouter();
+  const tagList = computed(() => state.menu.navigation);
+
+  //todo临时存放
+  dispatch('menu/loginInfo');
+  const isActive = (tag: any) => {
+    return tag.path === currentRoute.path;
+  };
+
+  //跳转判断
+  const toLastView = (navigation: []) => {
+    const latestView: any = navigation.slice(-1)[0];
+    if (latestView) {
+      router.push(latestView.fullPath);
+    } else {
+      router.push('/');
+    }
+  };
+
+  //添加导航栏  ---todo 新增有告警
+  const addTags = () => {
+    if (currentRoute.name) {
+      dispatch('menu/addNavigate', currentRoute);
+    }
+    return false;
+  };
+  //删除导航栏
+  const closeSelectedTag = (view: any) => {
+    dispatch('menu/delNavigate', view).then((navigation) => {
+      if (isActive(view)) {
+        toLastView(navigation);
+      }
+    });
+  };
+  watch(
+    () => currentRoute.name,
+    () => {
+      if (currentRoute.name !== 'Home') {
+        addTags();
+      }
     },
-    setup() {
-      const { state, dispatch } = useStore();
-      const currentRoute = useRoute();
-      const router = useRouter();
-      const tagList = computed(() => state.menu.navigation);
-
-      //todo临时存放
-      dispatch('menu/loginInfo');
-      const isActive = (tag: any) => {
-        return tag.path === currentRoute.path;
-      };
-
-      //跳转判断
-      const toLastView = (navigation: []) => {
-        const latestView: any = navigation.slice(-1)[0];
-        if (latestView) {
-          router.push(latestView.fullPath);
-        } else {
-          router.push('/');
-        }
-      };
-
-      //添加导航栏  ---todo 新增有告警
-      const addTags = () => {
-        if (currentRoute.name) {
-          dispatch('menu/addNavigate', currentRoute);
-        }
-        return false;
-      };
-      //删除导航栏
-      const closeSelectedTag = (view: any) => {
-        dispatch('menu/delNavigate', view).then((navigation) => {
-          if (isActive(view)) {
-            toLastView(navigation);
-          }
-        });
-      };
-      watch(
-        () => currentRoute.name,
-        () => {
-          if (currentRoute.name !== 'Home') {
-            addTags();
-          }
-        },
-        {
-          deep: false,
-          immediate: true,
-        }
-      );
-
-      return {
-        tagList,
-        closeSelectedTag,
-        isActive,
-      };
-    },
-  });
+    {
+      deep: false,
+      immediate: true,
+    }
+  );
 </script>
 
 <style lang="scss">
@@ -93,8 +84,9 @@
     align-items: center;
     position: relative;
     padding: 0 5px 0 10px;
-    margin: 10px 0;
-    height: 30px;
+    &_icon {
+      margin-left: 5px;
+    }
     &__item {
       text-decoration: none;
       display: inline-flex;

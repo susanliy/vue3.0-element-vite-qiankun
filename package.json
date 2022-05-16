@@ -61,6 +61,7 @@
   "vite": {
     "optimizeDeps": {
       "include": [
+        "@ant-design/icons-vue",
         "ant-design-vue",
         "ant-design-vue/lib/form",
         "axios",

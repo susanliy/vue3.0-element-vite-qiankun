@@ -5,7 +5,7 @@
     <div class="layout-header__user">
       <el-dropdown size="small" @visible-change="dropdownChange">
         <div class="user">
-          <i class="iconfont iconfont-user"></i>
+          <user-outlined />
           <div class="nick">角色</div>
           <i
             class="iconfont iconfont-arrow-down"
@@ -25,24 +25,13 @@
   </el-header>
 </template>
 
-<script lang="ts">
-  import { defineComponent, ref } from 'vue';
+<script lang="ts" setup>
+  import { UserOutlined } from '@ant-design/icons-vue';
+  import { ref } from 'vue';
   import Breadcrumb from '../header/Breadcrumb.vue';
 
-  export default defineComponent({
-    name: 'MainHeader',
-    components: {
-      Breadcrumb,
-    },
-    setup() {
-      const isDropdown = ref<boolean>(false);
-      const dropdownChange = (val: boolean) => (isDropdown.value = val);
-      return {
-        isDropdown,
-        dropdownChange,
-      };
-    },
-  });
+  const isDropdown = ref<boolean>(false);
+  const dropdownChange = (val: boolean) => (isDropdown.value = val);
 </script>
 
 <style lang="scss">

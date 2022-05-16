@@ -15,7 +15,7 @@
 <script lang="ts">
   import BaseFrom from '@/components/BaseFrom.vue';
   import { defineComponent, reactive, toRefs } from 'vue';
-  import BaseDiolog from '../components/BaseDialog.vue';
+  import BaseDiolog from '../../components/BaseDialog.vue';
   import useDialogVisible from '@/components/hooks/useDialogVisible';
 
   export default defineComponent({
