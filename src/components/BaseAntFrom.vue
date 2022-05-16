@@ -1,6 +1,6 @@
 <template>
   <a-form v-bind="formProps" ref="schemaFormRef">
-    <template v-for="(item, bind) in items" :key="bind">
+    <template v-for="(item, bind) in data" :key="bind">
       <a-form-item :name="bind" :rules="item.rules">
         <template #label>
           {{ item.label }}
@@ -21,9 +21,10 @@
 </template>
 <script setup lang="ts">
   import { computed, ref } from 'vue';
-  import { FormActionType, FormItemsType, NamePath } from './helpers';
+  import { FormItemsType, NamePath } from './helpers';
   import { markRaw } from 'vue';
   import { Input, Select, DatePicker } from 'ant-design-vue';
+  import { FormActionType } from './schema-form/types/form';
   const RangePicker = DatePicker.RangePicker;
 
   //类型注册
@@ -35,14 +36,14 @@
 
   //传入的参数
   type BasicFormProps = {
-    condition: object;
-    items: FormItemsType;
+    condition: object; //绑定的值
+    data: FormItemsType; //数据
     layout?: 'horizontal' | 'vertical' | 'inline';
     labelCol?: object;
     wrapperCol?: object;
+    labelAlign?: string;
   };
 
-  //默认的值
   const props = withDefaults(defineProps<BasicFormProps>(), {
     layout: 'inline',
     labelAlign: 'right',
@@ -71,9 +72,15 @@
     }
   }
 
+  //重置
+  const resetFields = () => {
+    schemaFormRef?.value?.resetFields();
+  };
+
   defineExpose({
     schemaFormRef,
     validate,
     validateFields,
+    resetFields,
   });
 </script>

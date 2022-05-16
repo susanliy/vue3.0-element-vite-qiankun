@@ -4,7 +4,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     path: '/',
     component: () => import('@/layouts/index.vue'),
     name: 'Home',
-    meta: { title: '首页', icon: 'home' },
+    meta: { title: '练习列表', icon: 'home' },
     children: [
       {
         path: '/main',
@@ -16,7 +16,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         path: '/from',
         component: () => import('@/views/from.vue'),
         name: 'from',
-        meta: { title: '表单', icon: 'tag' },
+        meta: { title: 'element表单封装', icon: 'tag' },
       },
       {
         path: '/asyncDialog',
@@ -52,7 +52,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         path: '/antFrom',
         name: '/antFrom',
         component: () => import('@/views/antFrom.vue'),
-        meta: { title: 'ant封装表单', icon: 'tag' },
+        meta: { title: 'ant表单封装', icon: 'tag' },
       },
     ],
   },

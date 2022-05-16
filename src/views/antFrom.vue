@@ -1,22 +1,39 @@
 <template>
-  <BaseAntFrom ref="dynamicForm" v-model:condition="queryForm" :items="formItems" />
+  <BaseAntFrom ref="dynamicForm" v-model:condition="queryForm" :data="formItems" />
+  <div class="form_btn">
+    <a-button class="mr-10px" @click="resetForm">重置</a-button>
+    <a-button type="primary" @click="handleSearch">搜索</a-button>
+  </div>
 </template>
 <script lang="ts" setup>
-  const queryForm = {
+  import { FormActionType } from '@/components/schema-form/types/form';
+  import { ref } from 'vue';
+
+  let queryForm = ref({
     username: '',
     role_ids: [],
     order_by: 'created:desc',
-  };
+  });
   const formItems = {
     role_ids: {
       label: '角色',
       component: 'select',
+      key: 'username',
       props: {
         placeholder: '请选择角色',
         allowClear: true,
         mode: 'multiple',
         showArrow: true,
-        options: [],
+        options: [
+          {
+            label: '111',
+            value: 111,
+          },
+          {
+            label: '222',
+            value: 222,
+          },
+        ],
       },
       rules: [{ required: true, message: '请输入' }],
     },
@@ -41,5 +58,22 @@
         ],
       },
     },
+  };
+
+  const emitEvents = defineEmits(['updateQueryParams']);
+
+  const dynamicForm = ref<FormActionType>();
+
+  const resetForm = () => {
+    dynamicForm?.value?.resetFields();
+  };
+
+  const handleSearch = () => {
+    if (dynamicForm.value?.validate()) {
+      dynamicForm.value
+        ?.validate()
+        .then(() => emitEvents('updateQueryParams', queryForm))
+        .catch((err) => console.log(err));
+    }
   };
 </script>
