@@ -14,12 +14,14 @@
       </base-table>
       <base-page-setting :total="4" />
     </div>
+    <!-- <DropTreeTable /> -->
   </div>
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue';
   import { tableListApi } from '@/api/table';
+  // import DropTreeTable from './components/DropTreeTable.vue';
 
   const columns = ref([
     {

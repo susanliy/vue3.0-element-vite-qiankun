@@ -1,14 +1,24 @@
 <template>
   <h3>ant 封装表格</h3>
+
+  <h4>鼠标滑过直接编辑，区域拖动</h4>
   <DropTreeIconTable
     :iconFieldNames="treeField"
     :iconColumns="tableColumns"
     :iconOriginDate="treeData"
   />
+
+  <h4 class="mt-30px">点击编辑进行修改，整行数据拖动</h4>
+  <DropTreeTable
+    :iconFieldNames="treeField"
+    :iconColumns="tableColumns"
+    :iconOriginDate="treeData1"
+  />
 </template>
 <script lang="ts" setup>
   import { ref } from 'vue';
   import DropTreeIconTable from './components/DropTreeIconTable.vue';
+  import DropTreeTable from './components/DropTreeTable.vue';
   const treeField = {
     children: 'children',
     title: 'title',
@@ -53,6 +63,39 @@
     },
   ];
   const treeData = ref([
+    {
+      id: 1,
+      title: '11',
+      pid: 22,
+      name: 2,
+    },
+    {
+      id: 66,
+      title: '11 - 1',
+      pid: 1,
+      name: 2,
+    },
+    {
+      id: 3,
+      title: '11 - 2',
+      pid: 1,
+      name: 1,
+    },
+    {
+      id: 4,
+      title: '10 - 1',
+      pid: 2,
+      name: 22,
+    },
+    {
+      id: 5,
+      title: '10 - 2',
+      pid: 2,
+      name: 2,
+    },
+  ]);
+
+  const treeData1 = ref([
     {
       id: 1,
       title: '11',
