@@ -10,6 +10,7 @@
 1. 实现基于 element-plus 封装动态表格
 2. 实现基于 element-plus 封装动态表单
 2. 实现基于 ant-design-vue 封装动态表单
+  > https://github.com/buqiyuan/vue3-antd-admin
 
 3. qiankun 子应用嵌入旧页面及通信（该项目作为qiankun的主应用）
    子应用用的是别人的（https://github.com/aehyok/vue-qiankun/tree/dev/map-app-ts）
@@ -17,11 +18,11 @@
 
 4. 对于cookie使用 封装
 5. vue自带的国际化的使用
+6. 封装可拖拽树形的列表
 
 
 
 ## TODO
-1. 封装树形的列表可拖拽
 2. 可拖拽可编辑的树形表格
 3. vueUse的使用及是实现
 4. jsx的使用

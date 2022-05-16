@@ -25,6 +25,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         meta: { title: '表单封装--element', icon: 'tag' },
       },
       {
+        path: '/tree-list',
+        component: () => import('@/views/treeList.vue'),
+        name: 'treeList',
+        meta: { title: '可拖拽树形列表', icon: 'tag' },
+      },
+      {
         path: '/asyncDialog',
         component: () => import('@/views/dialog/asyncDialog.vue'),
         name: 'asyncDialog',
