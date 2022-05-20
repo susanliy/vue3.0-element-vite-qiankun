@@ -1,6 +1,5 @@
 <template>
-  树形列表
-  <div class="basic-tree">
+  <div>
     <BaseModal
       :visible="ModalVisible"
       :title="'新增树形列表'"
@@ -83,8 +82,4 @@
     key: 'id',
   };
 </script>
-<style>
-  .basic-tree {
-    width: 400px;
-  }
-</style>
+<style></style>

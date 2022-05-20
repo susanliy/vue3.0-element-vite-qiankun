@@ -62,6 +62,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       },
     ],
   },
+  {
+    path: '/api',
+    component: () => import('@/views/api/api.vue'),
+    name: 'api',
+    meta: { title: 'api的编辑文档', icon: 'home' },
+  },
 ];
 
 export const router = createRouter({

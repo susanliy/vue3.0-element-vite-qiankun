@@ -2,12 +2,7 @@
   <div class="basic-drop-tree-table">
     <div class="flex table-head">
       <slot name="columnsIcon" :columnsIcon="gData"></slot>
-      <div
-        v-for="columnsItem in columns"
-        :key="columnsItem.key"
-        :style="countColWidth"
-        class="table-box"
-      >
+      <div v-for="columnsItem in columns" :key="columnsItem.key" class="width-list">
         {{ columnsItem.title }}
       </div>
       <p class="table-head-action">操作</p>
@@ -24,12 +19,7 @@
       <template #title="item">
         <div class="flex">
           <slot name="icon" :iconData="item"></slot>
-          <div
-            v-for="bb in columns"
-            :key="bb.key"
-            :style="countColWidth"
-            class="table-box table-row-action"
-          >
+          <div v-for="bb in columns" :key="bb.key" class="table-box table-row-action">
             <div v-if="item.change === true" class="flex input-width">
               <component
                 :is="componentMap[bb.component]"
@@ -62,7 +52,7 @@
   //可拖拽可编写表格
   import type { TreeProps } from 'ant-design-vue/es/tree';
   import useTreeData from '@/hooks/component/useTreeData';
-  import { computed, ref } from 'vue';
+  import { ref } from 'vue';
   import { markRaw } from 'vue';
   import { Input, Select } from 'ant-design-vue';
   import { translateArrayToTree } from '@/utils/utils';
@@ -84,9 +74,8 @@
 
   const { onDrop, gData } = useTreeData(treeData, props.fieldNames);
 
-  const countColWidth = computed(() => {
-    return `width : calc( (100% - 150px) / ${props.columns.length} )`;
-  });
+  const heard = `calc( (100% - 150px) / ${props.columns.length} )`;
+  const table = `calc( (100% - 150px) / ${props.columns.length} )`;
 
   const emits = defineEmits<{
     (e: 'editableSave', treeData: TreeProps['treeData']): void;
@@ -139,7 +128,6 @@
       font-weight: 500;
       line-height: 40px;
       border-bottom: 1px solid #f0f0f0;
-      padding-left: 24px;
 
       .table-head-action {
         margin: auto 0px;
@@ -155,8 +143,11 @@
       height: 40px;
       line-height: 40px;
       margin: auto 0px;
+      width: v-bind('table');
     }
-
+    .width-list {
+      width: v-bind('heard');
+    }
     .input-width {
       width: 80%;
     }
