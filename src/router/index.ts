@@ -68,6 +68,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     name: 'api',
     meta: { title: 'api的编辑文档', icon: 'home' },
   },
+  {
+    path: '/visualization',
+    component: () => import('@/views/visualizationPage/visualization.vue'),
+    name: 'visualization',
+    meta: { title: '可视化', icon: 'home' },
+  },
 ];
 
 export const router = createRouter({
