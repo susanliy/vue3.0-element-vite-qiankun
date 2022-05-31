@@ -8,10 +8,11 @@
   const imgList = [
     {
       name: '图一',
-      src: '/src/assets/images/1.webp',
+      src: '/src/assets/images/1.svg',
     },
-    { name: '图二', src: '/src/assets/images/2.webp' },
-    { name: '图三', src: '/src/assets/images/3.webp' },
+    { name: '图二', src: '/src/assets/images/2.svg' },
+    { name: '图三', src: '/src/assets/images/3.svg' },
+    { name: '图四', src: '/src/assets/images/4.svg' },
   ];
 
   const emits = defineEmits<{

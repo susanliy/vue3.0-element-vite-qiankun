@@ -16,6 +16,7 @@
     "crypto-js": "^4.1.1",
     "element-plus": "^1.2.0-beta.5",
     "js-cookie": "^3.0.1",
+    "konva": "^8.3.8",
     "lodash-es": "^4.17.21",
     "mockjs": "^1.1.0",
     "qiankun": "^2.6.3",
@@ -65,6 +66,7 @@
     "optimizeDeps": {
       "include": [
         "@ant-design/icons-vue",
+        "@vueuse/core",
         "ant-design-vue",
         "ant-design-vue/lib/form",
         "axios",
@@ -99,12 +101,14 @@
         "element-plus/es/components/table-column/style/css",
         "element-plus/es/components/table/style/css",
         "element-plus/lib/locale/lang/zh-cn",
+        "konva",
         "qiankun",
         "three",
         "three/examples/jsm/controls/OrbitControls.js",
         "vite-plugin-qiankun/dist/helper",
         "vue",
         "vue-i18n",
+        "vue-konva",
         "vue-router",
         "vuex"
       ]
