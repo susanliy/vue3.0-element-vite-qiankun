@@ -24,6 +24,7 @@
 
 
 ## TODO
+1. 实现element-plus 的树形表格
 1. 可视化的功能
    --拖拽的选型  vue-drag-resize   vue-drag-resize-rotate  konva(最终选择)
    --实现组件的大小缩放，旋转，删除（位移，旋转的高级配置），锁定, 元素平铺（基础，镜像，横向，纵向）

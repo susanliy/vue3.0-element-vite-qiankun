@@ -14,14 +14,14 @@ const course_list = {
       remark: '自定义',
     },
     {
-      id: '23',
+      id: '21',
       title: '编号4',
       state: 1,
       createTime: '2021-09-23T17:57:19',
       remark: '自定义',
     },
     {
-      id: '23',
+      id: '22',
       title: '编号5',
       state: 2,
       createTime: '2021-09-23T17:57:29',

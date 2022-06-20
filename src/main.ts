@@ -10,7 +10,6 @@ import { i18n } from '@/i18n/index';
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 import 'virtual:windi.css';
-import VueKonva from 'vue-konva';
 
 import permission from '@/directives/permission';
 
@@ -23,7 +22,6 @@ app.config.globalProperties.$axios = axiosSet;
 app.use(routes);
 app.use(store);
 app.use(i18n);
-app.use(VueKonva);
 app.use(Antd);
 app.use(permission);
 app.mount('#app');
