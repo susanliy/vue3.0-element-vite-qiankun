@@ -4,19 +4,19 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     path: '/',
     component: () => import('@/layouts/index.vue'),
     name: 'Home',
-    meta: { title: '练习列表', icon: 'home' },
+    meta: { title: '封装组件', icon: 'home' },
     children: [
       {
         path: '/table',
-        component: () => import('@/views/table/table.vue'),
+        component: () => import('@/views/table/ElementTable.vue'),
         name: 'table',
-        meta: { title: '表格', icon: 'tag' },
+        meta: { title: '表格+可拖拽-element', icon: 'tag' },
       },
       {
         path: '/drop-table',
-        component: () => import('@/views/table/DropTable.vue'),
+        component: () => import('@/views/table/AntDropTable.vue'),
         name: 'DropTable',
-        meta: { title: '可拖拽表格', icon: 'tag' },
+        meta: { title: '可拖拽表格--ant', icon: 'tag' },
       },
       {
         path: '/ant-from',
@@ -25,22 +25,22 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         meta: { title: '表单封装--ant', icon: 'tag' },
       },
       {
+        path: '/tree-list',
+        component: () => import('@/views/treeList.vue'),
+        name: 'treeList',
+        meta: { title: '可拖拽树形列表--ant', icon: 'tag' },
+      },
+      {
         path: '/from',
         component: () => import('@/views/from/elementFrom.vue'),
         name: 'from',
         meta: { title: '表单封装--element', icon: 'tag' },
       },
       {
-        path: '/tree-list',
-        component: () => import('@/views/treeList.vue'),
-        name: 'treeList',
-        meta: { title: '可拖拽树形列表', icon: 'tag' },
-      },
-      {
         path: '/asyncDialog',
         component: () => import('@/views/dialog/asyncDialog.vue'),
         name: 'asyncDialog',
-        meta: { title: '异步加载弹窗', icon: 'tag' },
+        meta: { title: '异步加载弹窗--element', icon: 'tag' },
       },
       {
         path: '/hooksPage',

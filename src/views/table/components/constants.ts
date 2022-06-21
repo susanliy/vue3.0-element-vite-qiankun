@@ -23,7 +23,6 @@ export const columns = ref([
     dictionary: [
       { code: 0, name: '待审核' },
       { code: 1, name: '已审核' },
-      { code: 2, name: '审核中' },
     ],
   },
   {

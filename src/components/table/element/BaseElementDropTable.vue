@@ -19,6 +19,7 @@
   </el-table>
 </template>
 <script lang="ts">
+  //todo  element 可拖拽的表格
   import draggable from 'vuedraggable';
   import { columns, testData } from '@/views/table/components/content';
   import { defineComponent } from 'vue';
