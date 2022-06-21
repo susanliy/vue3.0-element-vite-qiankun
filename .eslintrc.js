@@ -19,7 +19,7 @@ module.exports = defineConfig({
     ecmaVersion: 2020, //emcaVersion用来指定你想要使用的 ECMAScript 版本
     sourceType: 'module', // 设置为 "script" (默认)或"module"（如果你的代码是 ECMAScript 模块)
     jsxPragma: 'React',
-    //想使用额外的语言特性
+    //想使用额外的语言特性COOKIE_KEY_LIST
     ecmaFeatures: {
       jsx: true, //启用jsx
     },
@@ -54,13 +54,8 @@ module.exports = defineConfig({
         varsIgnorePattern: '^_', //名称包含下划线的变量
       },
     ],
-    'no-unused-vars': [
-      'error',
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-      },
-    ],
+    'no-unused-vars': 'off', // 当存在定义而未使用的变量时，关闭报错
+    'vue/no-unused-components': 'off', // 当存在定义而未使用的组件时，关闭报错
     'space-before-function-paren': 'off', //在函数括号之前强制执行一致的间距
 
     // 'vue/attributes-order': 'off',

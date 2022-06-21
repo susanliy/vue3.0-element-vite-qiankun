@@ -11,57 +11,7 @@
 <script lang="ts" setup>
   import { FormActionType } from '@/components/schema-form/types/form';
   import { ref } from 'vue';
-
-  let queryForm = ref({
-    username: '',
-    role_ids: [],
-    order_by: 'created:desc',
-  });
-  const formItems = {
-    role_ids: {
-      label: '角色',
-      component: 'select',
-      key: 'username',
-      props: {
-        placeholder: '请选择角色',
-        allowClear: true,
-        mode: 'multiple',
-        showArrow: true,
-        options: [
-          {
-            label: '111',
-            value: 111,
-          },
-          {
-            label: '222',
-            value: 222,
-          },
-        ],
-      },
-      rules: [{ required: true, message: '请输入' }],
-    },
-    username: {
-      label: '用户名',
-      component: 'input',
-      props: {
-        placeholder: '请输入用户名或真实姓名',
-        allowClear: true,
-      },
-      rules: [{ required: true, message: '请输入' }],
-    },
-    order_by: {
-      label: '排序方式',
-      component: 'select',
-      props: {
-        placeholder: '请选择排序方式',
-        allowClear: true,
-        options: [
-          { label: '按创建时间', value: 'created:desc' },
-          { label: '按排序值', value: 'position:desc' },
-        ],
-      },
-    },
-  };
+  import { queryForm, formItems } from './constant';
 
   const emitEvents = defineEmits(['updateQueryParams']);
 
