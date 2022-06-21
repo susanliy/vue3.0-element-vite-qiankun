@@ -15,7 +15,7 @@ const mutation: MutationTree<MenuStateInterface> = {
         children: [
           {
             path: '/main',
-            component: () => import('@/views/table/ElementTable.vue'),
+            component: () => import('@/views/table/elementTable.vue'),
             name: 'main',
             meta: { title: '表格', icon: 'tag' },
           },

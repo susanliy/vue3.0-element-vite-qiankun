@@ -7,14 +7,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     meta: { title: '封装组件', icon: 'home' },
     children: [
       {
-        path: '/table',
-        component: () => import('@/views/table/ElementTable.vue'),
-        name: 'table',
-        meta: { title: '表格+可拖拽-element', icon: 'tag' },
-      },
-      {
         path: '/drop-table',
-        component: () => import('@/views/table/AntDropTable.vue'),
+        component: () => import('@/views/table/antDropTable.vue'),
         name: 'DropTable',
         meta: { title: '可拖拽表格--ant', icon: 'tag' },
       },
@@ -31,6 +25,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         meta: { title: '可拖拽树形列表--ant', icon: 'tag' },
       },
       {
+        path: '/table',
+        component: () => import('@/views/table/elementTable.vue'),
+        name: 'table',
+        meta: { title: '表格+可拖拽-element', icon: 'tag' },
+      },
+      {
         path: '/from',
         component: () => import('@/views/from/elementFrom.vue'),
         name: 'from',
@@ -42,6 +42,20 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'asyncDialog',
         meta: { title: '异步加载弹窗--element', icon: 'tag' },
       },
+    ],
+  },
+  {
+    path: '/page',
+    component: () => import('@/layouts/index.vue'),
+    name: 'page',
+    meta: { title: '组合的页面', icon: 'home' },
+    children: [
+      {
+        path: '/api',
+        component: () => import('@/views/api/api.vue'),
+        name: 'api',
+        meta: { title: 'api的编辑文档', icon: 'home' },
+      },
       {
         path: '/hooksPage',
         component: () => import('@/views/hooksPage/hooksPage.vue'),
@@ -49,30 +63,18 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         meta: { title: '钩子练习页', icon: 'tag' },
       },
       {
-        path: '/three3D',
-        name: '/three3D',
-        component: () => import('@/views/three3D/index.vue'),
-        meta: { title: 'three.js', icon: 'tag' },
-      },
-      {
         path: '/map-app/marker',
         name: '/map-app',
         component: () => import('@/views/qiankun/test.vue'),
         meta: { title: 'qiankun测试页', icon: 'tag' },
       },
+      {
+        path: '/three3D',
+        name: '/three3D',
+        component: () => import('@/views/three3D/index.vue'),
+        meta: { title: 'three.js', icon: 'tag' },
+      },
     ],
-  },
-  {
-    path: '/api',
-    component: () => import('@/views/api/api.vue'),
-    name: 'api',
-    meta: { title: 'api的编辑文档', icon: 'home' },
-  },
-  {
-    path: '/visualization',
-    component: () => import('@/views/visualizationPage/visualization.vue'),
-    name: 'visualization',
-    meta: { title: '可视化', icon: 'home' },
   },
 ];
 
