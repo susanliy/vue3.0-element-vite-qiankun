@@ -30,6 +30,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'test',
         meta: { title: '测试页', icon: 'tag' },
       },
+      {
+        path: '/dailyPractice',
+        component: () => import('@/views/dailyPractice.vue'),
+        name: 'dailyPractice',
+        meta: { title: '日常练习', icon: 'tag' },
+      },
     ],
   },
   //todo--qiankun
