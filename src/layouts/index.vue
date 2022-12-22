@@ -13,35 +13,35 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import MainHeader from './components/header/index.vue'
-import Sidebar from './components/sideber/index.vue'
-import AppMain from './components/main/AppMain.vue'
-import MainNavigation from './components/main/MainNavigation.vue'
+  import { defineComponent } from 'vue';
+  import MainHeader from './components/header/index.vue';
+  import Sidebar from './components/sideber/index.vue';
+  import AppMain from './components/main/AppMain.vue';
+  import MainNavigation from './components/main/MainNavigation.vue';
 
-export default defineComponent({
-  name: 'MainLayout',
-  components: {
-    MainHeader,
-    Sidebar,
-    MainNavigation,
-    AppMain,
-  },
-})
+  export default defineComponent({
+    name: 'MainLayout',
+    components: {
+      MainHeader,
+      Sidebar,
+      MainNavigation,
+      AppMain,
+    },
+  });
 </script>
 
 <style lang="scss">
-.layout-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  .main-container {
-    background-color: #f7f7f7;
+  .layout-container {
     position: relative;
-    min-height: 100%;
-    margin-left: 250px; //todo 如果需要伸缩需提成变量
-    transition: margin-left 0.28s;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .main-container {
+      background-color: #f7f7f7;
+      position: relative;
+      min-height: 100%;
+      margin-left: 250px; //todo 如果需要伸缩需提成变量
+      transition: margin-left 0.28s;
+    }
   }
-}
 </style>

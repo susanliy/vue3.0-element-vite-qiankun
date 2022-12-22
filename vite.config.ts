@@ -1,27 +1,53 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
-import eslintPlugin from 'vite-plugin-eslint'
-import qiankun from 'vite-plugin-qiankun' //目前vite不支持qiankun  从而引入组件
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import { name } from './package.json'
-import { viteMockServe } from 'vite-plugin-mock'
-import OptimizationPersist from 'vite-plugin-optimize-persist' //优化--初始化的时候提前加载依赖（针对开发环境）
-import PkgConfig from 'vite-plugin-package-config'
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path';
+import eslintPlugin from 'vite-plugin-eslint';
+import qiankun from 'vite-plugin-qiankun'; //目前vite不支持qiankun  从而引入组件
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import vueJsx from '@vitejs/plugin-vue-jsx';
+import { name } from './package.json';
+import { viteMockServe } from 'vite-plugin-mock';
+import WindiCSS from 'vite-plugin-windicss';
+import { primaryColor } from './src/assets/css/themeConfig';
+
+//提供gzip
+import viteCompression from 'vite-plugin-compression';
+
+//优化--初始化的时候提前加载依赖（针对开发环境）
+import OptimizationPersist from 'vite-plugin-optimize-persist';
+import PkgConfig from 'vite-plugin-package-config';
 
 // useDevMode 开启时与热更新插件冲突
-const useDevMode = true // 如果是在主应用中加载子应用vite,必须打开这个,否则vite加载不成功, 单独运行没影响
+const useDevMode = true; // 如果是在主应用中加载子应用vite,必须打开这个,否则vite加载不成功, 单独运行没影响
+
+const pathResolve = (dir: string) => {
+  return resolve(process.cwd(), '.', dir);
+};
 // https://vitejs.dev/config/
 export default defineConfig(() => {
-  let config = {
+  const config = {
     plugins: [
+      WindiCSS(),
       PkgConfig(),
       OptimizationPersist(),
       vue(),
       vueJsx(),
+      viteCompression({
+        // 是否在控制台输出压缩结果
+        verbose: true,
+        // 是否禁用
+        disable: false,
+        // 体积大于 threshold 才会被压缩,单位 b
+        threshold: 10240,
+        // 压缩算法
+        algorithm: 'gzip',
+        // 生成的压缩包后缀
+        ext: '.gz',
+        // 压缩后是否删除源文件
+        deleteOriginFile: false,
+      }),
       qiankun('vite-vue-ts', { useDevMode }),
       eslintPlugin({
         cache: false,
@@ -32,7 +58,9 @@ export default defineConfig(() => {
         resolvers: [ElementPlusResolver()],
       }),
       Components({
+        dirs: ['src/components'],
         resolvers: [ElementPlusResolver()],
+        dts: 'types/components.d.ts',
       }),
       //添加mock板块
       viteMockServe({
@@ -57,11 +85,38 @@ export default defineConfig(() => {
       jsonpFunction: `webpackJsonp_${name}`,
     },
     resolve: {
-      alias: {
-        '@': resolve('./src'),
+      alias: [
+        {
+          find: 'vue-i18n',
+          replacement: 'vue-i18n/dist/vue-i18n.cjs.js',
+        },
+        {
+          find: '@',
+          replacement: pathResolve('src'),
+        },
+        {
+          find: '@images',
+          replacement: pathResolve('src/assets/images'),
+        },
+        {
+          find: '@svg',
+          replacement: pathResolve('src/assets/svg'),
+        },
+        {
+          find: '#',
+          replacement: pathResolve('types'),
+        },
+      ],
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "./src/assets/css/var/index.scss" as *;
+          $primaryColor: ${primaryColor};`,
+          charset: false,
+        },
       },
     },
-
     server: {
       port: 7000,
       open: true, // 启动时自动打开
@@ -70,12 +125,12 @@ export default defineConfig(() => {
       proxy: {
         //代理
         '/infra': {
-          target: 'http://139.186.205.7:5000/api', // 用于测试代理接口--后期删除
+          target: 'http://139.186.205.7:5000', // 用于测试代理接口--后期删除
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/infra/, ''),
         },
       },
     },
-  }
-  return config
-})
+  };
+  return config;
+});

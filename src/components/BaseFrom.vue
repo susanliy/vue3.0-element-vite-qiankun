@@ -22,20 +22,16 @@
             :type="item.type"
             v-bind="item.other"
             :placeholder="item.placeholder"
-          ></el-input>
+          />
         </template>
         <template v-if="item.type === 'select'">
-          <el-select
-            v-model="form[item.val]"
-            v-bind="item.other"
-            :placeholder="item.placeholder"
-          >
+          <el-select v-model="form[item.val]" v-bind="item.other" :placeholder="item.placeholder">
             <el-option
               v-for="op in item.options"
               :key="op[item.selectVal]"
               :label="op[item.selectLabel]"
               :value="op[item.selectVal]"
-            ></el-option>
+            />
           </el-select>
         </template>
         <template v-if="item.type === 'date'">
@@ -46,7 +42,7 @@
             range-separator="至"
             start-placeholder="开始时间"
             end-placeholder="结束时间"
-          ></el-date-picker>
+          />
         </template>
         <template v-if="item.type === 'radio'">
           <el-radio-group v-model="form[item.val]" v-bind="item.other">
@@ -71,77 +67,77 @@
           </el-checkbox-group>
         </template>
         <template v-if="item.type === 'switch'">
-          <el-switch v-model="form[item.val]" v-bind="item.other"></el-switch>
+          <el-switch v-model="form[item.val]" v-bind="item.other" />
         </template>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
-<script>
-import { computed, defineComponent, reactive, toRefs, ref, watch } from 'vue'
-export default defineComponent({
-  name: 'BaseFrom',
-  props: {
-    //设置为行内元素
-    inline: {
-      type: Boolean,
-      default: false,
-    },
-    labelWidth: {
-      type: String,
-      default: '90px',
-    },
-    //数据
-    formData: {
-      type: Array,
-      default: () => [],
-    },
-    //表单绑定值
-    modelValue: {
-      type: Object,
-      default: () => ({}),
-    },
-    //验证规则
-    formRules: {
-      type: Object,
-      default() {
-        return {}
+<script lang="ts">
+  import { computed, defineComponent, reactive, toRefs, ref, watch } from 'vue';
+  export default defineComponent({
+    name: 'BaseFrom',
+    props: {
+      //设置为行内元素
+      inline: {
+        type: Boolean,
+        default: false,
+      },
+      labelWidth: {
+        type: String,
+        default: '90px',
+      },
+      //数据
+      formData: {
+        type: Array,
+        default: () => [],
+      },
+      //表单绑定值
+      modelValue: {
+        type: Object,
+        default: () => ({}),
+      },
+      //验证规则
+      formRules: {
+        type: Object,
+        default() {
+          return {};
+        },
       },
     },
-  },
-  emits: ['update:modelValue'],
-  setup(props, { emit }) {
-    const formRef = ref(null)
-    const state = reactive({
-      form: computed(() => props.modelValue),
-    })
-    watch(
-      () => state.form,
-      (val) => {
-        emit('update:modelValue', val)
-      },
-      { deep: true },
-    )
+    emits: ['update:modelValue'],
+    setup(props, { emit }) {
+      const formRef = ref(null);
+      const state = reactive({
+        form: computed(() => props.modelValue),
+      });
+      watch(
+        () => state.form,
+        (val) => {
+          emit('update:modelValue', val);
+        },
+        { deep: true }
+      );
 
-    const validate = () => {
-      return new Promise((resolve, reject) => {
-        formRef.value
-          .validate()
-          .then((valid) => {
-            resolve(valid)
-          })
-          .catch((err) => {
-            reject(err)
-          })
-      })
-    }
+      const validate = () => {
+        return new Promise((resolve, reject) => {
+          formRef.value
+            .validate()
+            .then((valid) => {
+              resolve(valid);
+            })
+            .catch((err) => {
+              reject(err);
+            });
+        });
+      };
 
-    return {
-      ...toRefs(state),
-      validate,
-      formRef,
-    }
-  },
-})
+      return {
+        ...toRefs(state),
+        validate,
+        formRef,
+      };
+    },
+  });
 </script>

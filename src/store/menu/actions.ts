@@ -1,9 +1,9 @@
 //actions的方法为小驼峰式
 //commit 为大写的
-import { ActionTree } from 'vuex'
-import { StateInterface } from '../index'
-import { MenuStateInterface } from './state'
-import { Menu, Init } from '@/service/dataType/main'
+import { ActionTree } from 'vuex';
+import { StateInterface } from '../index';
+import { MenuStateInterface } from './state';
+import { Menu, Init } from '@/service/dataType/main';
 
 const actions: ActionTree<MenuStateInterface, StateInterface> = {
   //获取用户的数据
@@ -25,23 +25,23 @@ const actions: ActionTree<MenuStateInterface, StateInterface> = {
 
   //登入数据的分发
   setData({ commit }, data: Init) {
-    commit('SET_MENUS', data.menus)
+    commit('SET_MENUS', data.menus);
     // commit('SET_POPUP', data.popup)
     // commit('SET_PERMISSIONS', data.permissions)
   },
 
   //添加导航栏数据
   addNavigate({ commit }, view: Menu) {
-    commit('ADD_NAVIGATE', view)
+    commit('ADD_NAVIGATE', view);
   },
 
   //删除导航栏
   delNavigate({ commit, state }, view: Menu) {
     return new Promise((resolve) => {
-      commit('DEL_NAVIGATE', view)
-      resolve([...state.navigation])
-    })
+      commit('DEL_NAVIGATE', view);
+      resolve([...state.navigation]);
+    });
   },
-}
+};
 
-export default actions
+export default actions;

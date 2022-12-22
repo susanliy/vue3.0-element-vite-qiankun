@@ -1,21 +1,46 @@
-# Vue 3 + Typescript + Vite
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 项目运行
 
-## Recommended IDE Setup
+- npm install
+- 本地开发： npm run dev
+- 打包：npm run build
+- 本地预览：npm run serve
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+## 完成的内容
+1. 实现基于 element-plus 封装动态表格
+2. 实现基于 element-plus 封装动态表单
+2. 实现基于 ant-design-vue 封装动态表单
+  > https://github.com/buqiyuan/vue3-antd-admin
 
-## Type Support For `.vue` Imports in TS
+3. qiankun 子应用嵌入旧页面及通信（该项目作为qiankun的主应用）
+   子应用用的是别人的（https://github.com/aehyok/vue-qiankun/tree/dev/map-app-ts）
+   > 借鉴该博主的git（https://github.com/aehyok/vue-qiankun）
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+4. 对于cookie使用 封装
+5. vue自带的国际化的使用
+6. 封装可拖拽树形的列表
+7. 可拖拽可编辑的树形表格
 
 
-实现基于element-plus
-表格封装
-表单封装
-弹窗封装
+
+## TODO
+1. 实现element-plus 的树形表格
+1. 可视化的功能
+   --拖拽的选型  vue-drag-resize   vue-drag-resize-rotate  konva(最终选择)
+   --实现组件的大小缩放，旋转，删除（位移，旋转的高级配置），锁定, 元素平铺（基础，镜像，横向，纵向）
+   --平铺，铺满（1.0版本完成）
+   --对于整体画布的位置，及快捷键的控制
+   --标尺及辅助线的吸附
+   --鼠标右击的快捷键事件
+
+  插件外的支持
+   --操作回退--操作的步骤放在vuex内，对于每个操作进行本地保存
+   --预览图（2d与3d）
+
+3. vueUse的使用及是实现
+4. jsx的使用
+5. fix --菜单子集路由页面对应出错
 
 
-to do 
-作为qiankun子应用嵌入旧页面
+
+加油！！学无止境，自律

@@ -3,14 +3,14 @@
  */
 export interface BaseWrapper {
   /** 状态码 */
-  code: number
+  code: number;
   /** 消息 */
-  msg: string
+  msg: string;
 }
 
 /**
  * 单数据格式
  */
 export interface DataWrapper<T> extends BaseWrapper {
-  data: T
+  data: T;
 }

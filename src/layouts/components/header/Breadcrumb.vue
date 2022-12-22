@@ -17,70 +17,64 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { RouteLocationMatched } from 'vue-router'
+  import { defineComponent } from 'vue';
+  import { RouteLocationMatched } from 'vue-router';
 
-export default defineComponent({
-  data() {
-    return {
-      levelList: [] as Pick<
-        RouteLocationMatched,
-        'meta' | 'path' | 'redirect'
-      >[],
-    }
-  },
-  watch: {
-    $route() {
-      this.getBreadcrumb()
+  export default defineComponent({
+    data() {
+      return {
+        levelList: [] as Pick<RouteLocationMatched, 'meta' | 'path' | 'redirect'>[],
+      };
     },
-  },
-  created() {
-    this.getBreadcrumb()
-  },
-  methods: {
-    getBreadcrumb() {
-      // only show routes with meta.title
-      let matched = this.$route.matched.filter(
-        (item) => item.meta && item.meta.title,
-      )
-      const first = matched[0]
+    watch: {
+      $route() {
+        this.getBreadcrumb();
+      },
+    },
+    created() {
+      this.getBreadcrumb();
+    },
+    methods: {
+      getBreadcrumb() {
+        // only show routes with meta.title
+        let matched = this.$route.matched.filter((item) => item.meta && item.meta.title);
+        const first = matched[0];
 
-      if (!this.isDashboard(first)) {
-        const nav: any = {
-          path: '/home',
-          meta: {
-            title: '首页',
-          },
+        if (!this.isDashboard(first)) {
+          const nav: any = {
+            path: '/home',
+            meta: {
+              title: '首页',
+            },
+          };
+          matched = [nav].concat(matched);
         }
-        matched = [nav].concat(matched)
-      }
 
-      this.levelList = matched.filter(
-        (item) =>
-          item.meta && item.meta.title && item.meta.breadcrumb !== false,
-      )
+        this.levelList = matched.filter(
+          (item) => item.meta && item.meta.title && item.meta.breadcrumb !== false
+        );
+      },
+      isDashboard(meta: any) {
+        const name = meta && meta.name;
+        if (!name) {
+          return false;
+        }
+        return name.trim().toLocaleLowerCase() === 'Home'.toLocaleLowerCase();
+      },
     },
-    isDashboard(meta: any) {
-      const name = meta && meta.name
-      if (!name) {
-        return false
-      }
-      return name.trim().toLocaleLowerCase() === 'Home'.toLocaleLowerCase()
-    },
-  },
-})
+  });
 </script>
 
 <style lang="scss" scoped>
-.app-breadcrumb.el-breadcrumb {
-  display: inline-block;
-  margin-left: 8px;
-  font-size: 14px;
-  line-height: 50px;
+  .app-breadcrumb.el-breadcrumb {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 14px;
+    line-height: 50px;
 
-  .no-redirect {
-    color: #97a8be;
-    cursor: text;
+    .no-redirect {
+      color: #97a8be;
+      cursor: text;
+    }
   }
-}
 </style>
