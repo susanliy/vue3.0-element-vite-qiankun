@@ -7,64 +7,64 @@ const mutation: MutationTree<MenuStateInterface> = {
   SET_MENUS(state) {
     // state.menus = menus
     state.menus = [
-      {
-        path: '/',
-        component: () => import('@/layouts/index.vue'),
-        name: 'Home',
-        meta: { title: '练习列表', icon: 'home' },
-        children: [
-          {
-            path: '/main',
-            component: () => import('@/views/table/elementTable.vue'),
-            name: 'main',
-            meta: { title: '表格', icon: 'tag' },
-          },
-          {
-            path: '/from',
-            component: () => import('@/views/from/elementFrom.vue'),
-            name: 'from',
-            meta: { title: '表单', icon: 'tag' },
-            children: [
-              {
-                path: '/from',
-                component: () => import('@/views/from/elementFrom.vue'),
-                name: 'from',
-                meta: { title: 'element表单封装', icon: 'tag' },
-              },
-              {
-                path: '/antFrom',
-                name: '/antFrom',
-                component: () => import('@/views/from/antFrom.vue'),
-                meta: { title: 'ant表单封装', icon: 'tag' },
-              },
-            ],
-          },
-          {
-            path: '/asyncDialog',
-            component: () => import('@/views/dialog/asyncDialog.vue'),
-            name: 'asyncDialog',
-            meta: { title: '异步加载弹窗', icon: 'tag' },
-          },
-          {
-            path: '/hooksPage',
-            component: () => import('@/views/hooksPage/hooksPage.vue'),
-            name: 'hooksPage',
-            meta: { title: '钩子练习页', icon: 'tag' },
-          },
-          {
-            path: '/three3D',
-            name: '/three3D',
-            component: () => import('@/views/three3D/index.vue'),
-            meta: { title: 'three.js', icon: 'tag' },
-          },
-          {
-            path: '/map-app/marker',
-            name: '/map-app',
-            component: () => import('@/views/qiankun/test.vue'),
-            meta: { title: 'qiankun测试页', icon: 'tag' },
-          },
-        ],
-      },
+      // {
+      //   path: '/',
+      //   component: () => import('@/layouts/index.vue'),
+      //   name: 'Home',
+      //   meta: { title: '练习列表', icon: 'home' },
+      //   children: [
+      //     {
+      //       path: '/main',
+      //       component: () => import('@/views/table/element/ElementTable.vue'),
+      //       name: 'main',
+      //       meta: { title: 'element表格', icon: 'tag' },
+      //     },
+      //     {
+      //       path: '/from',
+      //       component: () => import('@/views/from/elementFrom.vue'),
+      //       name: 'from',
+      //       meta: { title: '表单', icon: 'tag' },
+      //       children: [
+      //         {
+      //           path: '/from',
+      //           component: () => import('@/views/from/elementFrom.vue'),
+      //           name: 'from',
+      //           meta: { title: 'element表单封装', icon: 'tag' },
+      //         },
+      //         {
+      //           path: '/antFrom',
+      //           name: '/antFrom',
+      //           component: () => import('@/views/from/antFrom.vue'),
+      //           meta: { title: 'ant表单封装', icon: 'tag' },
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       path: '/asyncDialog',
+      //       component: () => import('@/views/dialog/asyncDialog.vue'),
+      //       name: 'asyncDialog',
+      //       meta: { title: '异步加载弹窗', icon: 'tag' },
+      //     },
+      //     {
+      //       path: '/hooksPage',
+      //       component: () => import('@/views/hooksPage/hooksPage.vue'),
+      //       name: 'hooksPage',
+      //       meta: { title: '钩子练习页', icon: 'tag' },
+      //     },
+      //     {
+      //       path: '/three3D',
+      //       name: '/three3D',
+      //       component: () => import('@/views/three3D/index.vue'),
+      //       meta: { title: 'three.js', icon: 'tag' },
+      //     },
+      //     {
+      //       path: '/map-app/marker',
+      //       name: '/map-app',
+      //       component: () => import('@/views/qiankun/test.vue'),
+      //       meta: { title: 'qiankun测试页', icon: 'tag' },
+      //     },
+      //   ],
+      // },
     ];
   },
 

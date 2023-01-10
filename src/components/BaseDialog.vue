@@ -57,7 +57,7 @@
       padding-left: 10px;
     }
   }
-  :slotted(div) {
-    background-color: red;
-  }
+  // :slotted(div) {
+  //   background-color: red;
+  // }
 </style>

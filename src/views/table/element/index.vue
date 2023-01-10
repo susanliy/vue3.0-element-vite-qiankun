@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { columns, testData } from './constants';
+  import { columns, testData } from '../constants';
 
   const sortChange = (sort: any) => {
     console.log('sort', sort);

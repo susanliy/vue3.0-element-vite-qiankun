@@ -1,6 +1,5 @@
 <template>
   <h3>ant 封装表格</h3>
-
   <h4>鼠标滑过直接编辑，区域拖动</h4>
   <DropTreeIconTable
     :iconFieldNames="treeField"
@@ -17,8 +16,8 @@
 </template>
 <script lang="ts" setup>
   import { ref } from 'vue';
-  import DropTreeIconTable from './components/DropTreeIconTable.vue';
-  import DropTreeTable from './components/DropTreeTable.vue';
+  import DropTreeIconTable from './components/AntDropTreeIconTable.vue';
+  import DropTreeTable from './components/AntDropTreeTable.vue';
   const treeField = {
     children: 'children',
     title: 'title',

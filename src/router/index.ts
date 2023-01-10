@@ -8,8 +8,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/drop-table',
-        component: () => import('@/views/table/antDropTable.vue'),
-        name: 'DropTable',
+        component: () => import('@/views/table/ant/index.vue'),
+        name: '/DropTable',
         meta: { title: '可拖拽表格--ant', icon: 'tag' },
       },
       {
@@ -24,12 +24,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'treeList',
         meta: { title: '可拖拽树形列表--ant', icon: 'tag' },
       },
-      {
-        path: '/table',
-        component: () => import('@/views/table/elementTable.vue'),
-        name: 'table',
-        meta: { title: '表格+可拖拽-element', icon: 'tag' },
-      },
+      // {
+      //   path: '/table',
+      //   component: () => import('@/views/table/element/ElementTable.vue'),
+      //   name: 'table',
+      //   meta: { title: '表格+可拖拽-element', icon: 'tag' },
+      // },
       {
         path: '/from',
         component: () => import('@/views/from/elementFrom.vue'),
