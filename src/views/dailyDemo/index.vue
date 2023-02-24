@@ -34,18 +34,23 @@
   <!-- <el-tab /> -->
   <a-tabs v-model:activeKey="activeKey" @change="tabClick">
     <a-tab-pane key="1" tab="文档"
-      ><TabDocument /><div> 第一个tab数据{{ listData }}</div></a-tab-pane
+      ><div>
+        第一个tab数据<span><loading-outlined v-if="!listData" /></span>{{ listData }}
+      </div></a-tab-pane
     >
     <a-tab-pane key="2" tab="编辑" force-render
-      ><div> 第二个tab数据{{ listData }}</div></a-tab-pane
+      ><div>
+        第二个tab数据<span><loading-outlined v-if="!listData" /></span>{{ listData }}</div
+      ></a-tab-pane
     >
   </a-tabs>
 </template>
 <script lang="ts" setup>
   import { ref } from 'vue';
-
+  import { LoadingOutlined } from '@ant-design/icons-vue';
   import { heardListApi, tableListApi } from '@/api/apiList';
 
+  //按钮
   const firstShow = ref(false);
   const twoShow = ref(false);
   const threeShow = ref(false);
@@ -61,11 +66,14 @@
   };
 
   //tab
-  const activeKey = ref(1);
-  const listData = ref([]);
-  const tabClick = (val: number) => {
+  const activeKey = ref<String>('1');
+  const listData = ref<[]>();
+  heardListApi().then((res) => {
+    listData.value = res.data;
+  });
+  const tabClick = (val: string) => {
     listData.value = []; //点击赋值前清空数据
-    if (val == 1) {
+    if (val == '1') {
       heardListApi().then((res) => {
         listData.value = res.data;
       });
