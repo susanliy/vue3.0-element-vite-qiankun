@@ -76,7 +76,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       },
       {
         path: '/dailyPractice',
-        component: () => import('@/views/dailyPractice.vue'),
+        component: () => import('@/views/dailyDemo/index.vue'),
         name: 'dailyPractice',
         meta: { title: '日常练习', icon: 'tag' },
       },
