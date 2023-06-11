@@ -39,7 +39,6 @@ declare module 'vue' {
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
-    ElTab: typeof import('element-plus/es')['ElTab']
     SchemaForm: typeof import('./../src/components/schema-form/schema-form.vue')['default']
     SchemaFormItem: typeof import('./../src/components/schema-form/schema-form-item.vue')['default']
   }
