@@ -20,6 +20,6 @@
     position: relative;
     height: calc(100vh - 84px);
     padding: 0px 10px;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 </style>

@@ -73,8 +73,11 @@
     line-height: 50px;
 
     .no-redirect {
-      color: #97a8be;
+      color: #fff;
       cursor: text;
     }
+  }
+  :deep(.el-breadcrumb__inner a, .el-breadcrumb__inner.is-link) {
+    color: #fff;
   }
 </style>

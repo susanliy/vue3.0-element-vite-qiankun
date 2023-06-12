@@ -40,16 +40,16 @@
   }
   .layout-header {
     overflow: hidden;
-    line-height: 50px;
-    color: #606266;
+    line-height: 40px;
+    color: #fff;
     display: flex;
     align-items: center;
-    background-color: #fff;
-    height: 50px;
+    background-color: #303445;
+    height: 40px;
     &__breadcrumb {
-      font-weight: 500;
+      font-weight: 400;
       margin-left: 20px;
-      line-height: 50px;
+      line-height: 40px;
       font-size: 13px;
       .iconfont {
         float: left;
@@ -71,7 +71,7 @@
           text-overflow: ellipsis;
           white-space: nowrap;
           font-size: 14px;
-          font-weight: 500;
+          font-weight: 400;
         }
         .iconfont {
           font-size: 14px;

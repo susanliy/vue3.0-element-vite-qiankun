@@ -75,6 +75,7 @@
 </template>
 
 <script lang="ts">
+  //两个插件的组件区别  类型不是用注册的  这样的话不方便自定义 建议改成注册的
   import { computed, defineComponent, reactive, toRefs, ref, watch } from 'vue';
   export default defineComponent({
     name: 'BaseFrom',

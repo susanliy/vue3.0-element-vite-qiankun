@@ -7,7 +7,7 @@
       <!-- 导航栏 -->
       <main-navigation class="layout-navigation-wrapper" />
       <!-- 主页面 -->
-      <app-main />
+      <app-main class="layout-main" />
     </div>
   </div>
 </template>
@@ -42,6 +42,9 @@
       min-height: 100%;
       margin-left: 250px; //todo 如果需要伸缩需提成变量
       transition: margin-left 0.28s;
+    }
+    .layout-main {
+      overflow: hidden;
     }
   }
 </style>
