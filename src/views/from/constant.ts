@@ -1,5 +1,23 @@
 import { reactive, ref } from 'vue';
 
+
+export const owner = {
+  Date: '2023-10-07',
+  zhi: 4273,
+  wei: 1386,
+  zhe: 10000,
+  zhao: 53118,
+  jian: 1016,
+  ping: 142549,
+  gong: 3560,
+  open: 65962,
+
+  
+
+  owner: 150000,
+  total: 215902,
+}
+
 //element
 export const formJson = [
   {
