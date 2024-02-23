@@ -23,7 +23,7 @@
     >
       <template #title="item">
         <div class="flex">
-          <holder-outlined class="tree-draggable-icon" @mousemove="openDraggable" />
+          <FolderOutlined class="tree-draggable-icon" @mousemove="openDraggable" />
           <slot name="icon" :iconData="item"></slot>
           <div
             v-for="bb in columns"
@@ -55,7 +55,7 @@
   import { markRaw } from 'vue';
   import { Input, Select } from 'ant-design-vue';
   import { translateArrayToTree } from '@/utils/utils';
-  import { HolderOutlined } from '@ant-design/icons-vue';
+  import { FolderOutlined } from '@ant-design/icons-vue';
 
   const isDraggable = ref(true);
   const openDraggable = () => {
