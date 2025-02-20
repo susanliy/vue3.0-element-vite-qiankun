@@ -18,6 +18,42 @@ export const owner = {
   total: 215902,
 }
 
+
+export const owner1 = {
+  Date: '2024-04-19',
+  zhi: '1273(锁定)',
+  wei: 1386,
+  zhao: 114000,
+  jian: 1838,
+  gong: 3564,
+  ping: 186400,
+  
+
+  open: 114000,
+  owner: 194461,
+  total: 308461,
+}
+
+
+export const owner2 = {
+  Date: '2025-02-20',
+  zhi: '1569(锁定)',
+  wei: 108,
+  zhao: 61910,
+  jian: 1625,
+  gong: 4525,
+  ping: 222594,
+  zhong: 36422,
+  
+  
+  gupiao: '67049(锁定)',
+  
+  open: 98332,
+  owner: 230421,
+
+  total: 395802,
+}
+
 //element
 export const formJson = [
   {
